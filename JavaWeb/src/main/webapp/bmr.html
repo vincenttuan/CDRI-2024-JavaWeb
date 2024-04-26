@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<meta charset="UTF-8">
 		<title>My BMR 計算機</title>
 	</head>
-	<body>
+	<body style="padding: 15px">
 		<!-- BMR 說明 -->
 		<h2>
 			<pre>
@@ -16,6 +17,20 @@
 			 </pre>
 		</h2>
 		<!-- BMR 表單 -->
+		<form class="pure-form" action="/JavaWeb/servlet/bmr" method="post">
+			<fieldset>
+				<legend>BMR 計算機</legend>
+				姓名: <input type="text" id="userName" name="userName" placeholder="請輸入姓名" required><p>
+				性別: <input type="radio" id="userGender" name="userGender" value="M" checked> 男性
+					 <input type="radio" id="userGender" name="userGender" value="F"> 女性<p>
+				身高: <input type="number" id="userHeight" name="userHeight" placeholder="請輸入身高" required min="70" max="300"><p>
+				體重: <input type="number" id="userWeight" name="userWeight" placeholder="請輸入體重" required min="20" max="300"><p>
+				<button type="reset" class="pure-button">重置</button>
+				<button type="submit" class="pure-button pure-button-primary">傳送</button>
+			</fieldset>
+			
+		</form>
+		
 		
 	</body>
 </html>
