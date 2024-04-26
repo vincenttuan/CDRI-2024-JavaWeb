@@ -44,7 +44,7 @@ public class BMIServlet extends HttpServlet {
 		resp.getWriter().print("</tr>");
 		resp.getWriter().print("</thead>");
 		
-		resp.getWriter().print("<body>");
+		resp.getWriter().print("<tbody>");
 		resp.getWriter().print("<tr>");
 		
 		bmiList.forEach(map -> {
@@ -59,7 +59,7 @@ public class BMIServlet extends HttpServlet {
 		});
 		
 		resp.getWriter().print("</tr>");
-		resp.getWriter().print("</body>");
+		resp.getWriter().print("</tbody>");
 		
 		resp.getWriter().print("</table>");
 		resp.getWriter().print("</body>");
