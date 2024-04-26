@@ -50,7 +50,7 @@ public class BMIServlet extends HttpServlet {
 		double weight = Double.parseDouble(userWeight);
 		double bmi = weight / Math.pow(height/100, 2);
 		
-		// 建立 Map 集合放置表單資訊與bmi的內容
+		// 建立 Map 集合放置表單與bmi的內容
 		Map<String, Object> map = new LinkedHashMap();
 		map.put("name", userName);
 		map.put("height", height);
