@@ -17,7 +17,7 @@
 			 </pre>
 		</h2>
 		<!-- BMR 表單 -->
-		<form class="pure-form" action="/JavaWeb/servlet/bmr" method="post">
+		<form class="pure-form" action="/JavaWeb/servlet/bmr" method="post" target="result">
 			<fieldset>
 				<legend>BMR 計算機</legend>
 				姓名: <input type="text" id="userName" name="userName" placeholder="請輸入姓名" required><p>
@@ -32,6 +32,8 @@
 			
 		</form>
 		
+		<!-- BMR 結果使用 iframe -->
+		<iframe id="result" name="result" frameborder="0"></iframe>
 		
 	</body>
 </html>
