@@ -47,6 +47,17 @@ public class BMIServlet extends HttpServlet {
 		resp.getWriter().print("<body>");
 		resp.getWriter().print("<tr>");
 		
+		bmiList.forEach(map -> {
+			try {
+				resp.getWriter().print("<td>" + map.get("name") + "</td>");
+				resp.getWriter().print("<td>" + map.get("height") + "</td>");
+				resp.getWriter().print("<td>" + map.get("weight") + "</td>");
+				resp.getWriter().print("<td>" + map.get("bmi") + "</td>");
+			} catch (Exception e) {
+				
+			}
+		});
+		
 		resp.getWriter().print("</tr>");
 		resp.getWriter().print("</body>");
 		
