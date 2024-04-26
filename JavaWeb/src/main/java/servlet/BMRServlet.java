@@ -24,9 +24,9 @@ public class BMRServlet extends HttpServlet {
 		String userHeight = req.getParameter("userHeight");
 		String userWeight = req.getParameter("userWeight");
 		
-		double age = Double.parseDouble("userAge");
-		double height = Double.parseDouble("userHeight");
-		double weight = Double.parseDouble("userWeight");
+		double age = Double.parseDouble(userAge);
+		double height = Double.parseDouble(userHeight);
+		double weight = Double.parseDouble(userWeight);
 		
 		// 根據性別計算 bmr
 		double bmr = 0;
