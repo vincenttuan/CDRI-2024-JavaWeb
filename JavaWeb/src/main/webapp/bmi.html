@@ -7,7 +7,7 @@
 	</head>
 	<body style="padding: 15px">
 		
-		<form class="pure-form" action="/JavaWeb/servlet/bmi" method="post">
+		<form class="pure-form" action="/JavaWeb/servlet/bmi" method="post" target="result">
 			<fieldset>
 				<legend>BMI 計算機</legend>
 				姓名: <input type="text" id="userName" name="userName" placeholder="請輸入姓名" required><p>
@@ -17,6 +17,9 @@
 				<button type="submit" class="pure-button pure-button-primary">傳送</button>
 			</fieldset>
 		</form>
+		
+		<!-- BMI 結果使用 iframe -->
+		<iframe id="result" name="result" frameborder="0"></iframe>
 		
 	</body>
 </html>
