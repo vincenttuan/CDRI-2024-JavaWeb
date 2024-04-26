@@ -27,7 +27,32 @@ public class BMIServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		
 		// 回應內容:
-		resp.getWriter().print(bmiList);
+		//resp.getWriter().print(bmiList);
+		// 回應內容(含 HTML):
+		resp.getWriter().print("<html>");
+		resp.getWriter().print("<head>");
+		resp.getWriter().print("</head>");
+		resp.getWriter().print("<body>");
+		resp.getWriter().print("<table border='1'>");
+		
+		resp.getWriter().print("<thead>");
+		resp.getWriter().print("<tr>");
+		resp.getWriter().print("<th>Name</th>");
+		resp.getWriter().print("<th>Height</th>");
+		resp.getWriter().print("<th>Weight</th>");
+		resp.getWriter().print("<th>BMI</th>");
+		resp.getWriter().print("</tr>");
+		resp.getWriter().print("</thead>");
+		
+		resp.getWriter().print("<body>");
+		resp.getWriter().print("<tr>");
+		
+		resp.getWriter().print("</tr>");
+		resp.getWriter().print("</body>");
+		
+		resp.getWriter().print("</table>");
+		resp.getWriter().print("</body>");
+		resp.getWriter().print("</html>");
 	}
 	
 	// 表單使用
