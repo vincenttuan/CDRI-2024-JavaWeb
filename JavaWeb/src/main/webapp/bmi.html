@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<meta charset="UTF-8">
 		<title>My BMI 計算機</title>
 	</head>
-	<body>
+	<body style="padding: 15px">
 		
-		<form>
+		<form class="pure-form">
 			<fieldset>
 				<legend>BMI 計算機</legend>
 				姓名: <input type="text" id="userName" name="userName" placeholder="請輸入姓名" required><p>
 				身高: <input type="number" id="userHeight" name="userHeight" placeholder="請輸入身高" required min="70" max="300"><p>
 				體重: <input type="number" id="userWeight" name="userWeight" placeholder="請輸入體重" required min="20" max="300"><p>
-				<button type="reset">重置</button>
-				<button type="submit">傳送</button>
+				<button type="reset" class="pure-button">重置</button>
+				<button type="submit" class="pure-button pure-button-primary">傳送</button>
 			</fieldset>
 		</form>
 		
