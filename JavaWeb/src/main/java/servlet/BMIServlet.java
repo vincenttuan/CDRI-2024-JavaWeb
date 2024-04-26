@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -48,6 +49,15 @@ public class BMIServlet extends HttpServlet {
 		double height = Double.parseDouble(userHeight);
 		double weight = Double.parseDouble(userWeight);
 		double bmi = weight / Math.pow(height/100, 2);
+		
+		// 建立 Map 集合放置表單資訊與bmi的內容
+		Map<String, Object> map = new LinkedHashMap();
+		map.put("name", userName);
+		map.put("height", height);
+		map.put("weight", weight);
+		map.put("bmi", bmi);
+		// 將資料儲存到 bmiList 集合中
+		bmiList.add(map);
 		
 		// 回應內容:
 		resp.getWriter().print("BMI Result = " + bmi);
