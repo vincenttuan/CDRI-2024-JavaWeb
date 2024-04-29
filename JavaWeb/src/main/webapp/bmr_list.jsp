@@ -16,7 +16,7 @@
 	</head>
 	<body style="padding: 15px">
 		<h2>BMR List:</h2>
-		<table class="pure-table pure-tabled-bordered">
+		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
 					<th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th>
