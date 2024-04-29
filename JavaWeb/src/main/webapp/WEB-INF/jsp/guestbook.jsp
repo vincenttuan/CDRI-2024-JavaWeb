@@ -25,7 +25,7 @@
 			</fieldset>
 		</form>
 		<!-- 留言列表 -->
-		<form class="pure-form">
+		<div class="pure-form">
 			<fieldset>
 				<legend>GuestBook List</legend>
 				<table class="pure-table pure-table-bordered">
@@ -48,7 +48,7 @@
 					</tbody>
 				</table>
 			</fieldset>	
-		</form>
+		</div>
 		
 	</body>
 </html>

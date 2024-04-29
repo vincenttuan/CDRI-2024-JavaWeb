@@ -13,13 +13,13 @@
 	</head>
 	<body style="padding: 15px">
 		
-		<form class="pure-form">
+		<div class="pure-form">
 			<fieldset>
 				<legend>GuestBook Result</legend>
 				<%=state?"新增成功":"新增失敗" %><p>
 				<a href="/JavaWeb/guestbook" class="pure-button pure-button-primary" >返回</a>
 			</fieldset>
-		</form>
+		</div>
 		
 	</body>
 </html>
