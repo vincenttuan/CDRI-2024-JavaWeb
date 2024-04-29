@@ -1,6 +1,16 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page import="guestbook.model.GuestBook"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%!
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	String dateFormat(Date date) {
+		return date == null ? "" : sdf.format(date);
+	}
+%>
+
 <%
 	List<GuestBook> guestBooks = (List)request.getAttribute("guestBooks");
 %>
@@ -20,8 +30,8 @@
 					<td><%=gb.getId() %></td>
 					<td><%=gb.getUsername() %></td>
 					<td><%=gb.getContent() %></td>
-					<td><%=gb.getCreateDate() %></td>
-					<td><%=gb.getUpdateDate() %></td>
+					<td><%=dateFormat(gb.getCreateDate()) %></td>
+					<td><%=dateFormat(gb.getUpdateDate()) %></td>
 					<td><a href="/JavaWeb/guestbook?deleteId=<%=gb.getId() %>" class="button-error pure-button">Delete</a></td>
 				</tr>
 			<% } %>
