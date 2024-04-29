@@ -1,6 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -11,6 +15,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/servlet/bmr")
 public class BMRServlet extends HttpServlet {
+	
+	// 存放 bmr 的歷史紀錄
+	private List<Map<String, Object>> bmrList = new CopyOnWriteArrayList();
 	
 	// 紀錄查詢
 	@Override
@@ -50,8 +57,28 @@ public class BMRServlet extends HttpServlet {
 				break;
 		}
 		
+		// 建立 Map 集合放置表單與bmr的內容
+		Map<String, Object> map = new LinkedHashMap();
+		map.put("name", userName);
+		map.put("gender", userGender);
+		map.put("age", userAge);
+		map.put("height", userHeight);
+		map.put("weight", userWeight);
+		map.put("bmr", bmr);
+		bmrList.add(map);
+		
 		// 回應內容:
 		resp.getWriter().print("BMR Result = " + bmr);
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
