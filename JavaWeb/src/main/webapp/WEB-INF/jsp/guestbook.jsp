@@ -24,6 +24,31 @@
 				<button type="submit" class="pure-button pure-button-primary">新增留言</button>
 			</fieldset>
 		</form>
+		<!-- 留言列表 -->
+		<form class="pure-form">
+			<fieldset>
+				<legend>GuestBook List</legend>
+				<table class="pure-table pure-table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th><th>Username</th><th>Content</th><th>Create Date</th><th>Update Date</th><th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(GuestBook gb : guestBooks) { %>
+							<tr>
+								<td><%=gb.getId() %></td>
+								<td><%=gb.getUsername() %></td>
+								<td><%=gb.getContent() %></td>
+								<td><%=gb.getCreateDate() %></td>
+								<td><%=gb.getUpdateDate() %></td>
+								<td><a href="/JavaWeb/guestbook?deleteId=<%=gb.getId() %>" class="button-error pure-button">Delete</a></td>
+							</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</fieldset>	
+		</form>
 		
 	</body>
 </html>
