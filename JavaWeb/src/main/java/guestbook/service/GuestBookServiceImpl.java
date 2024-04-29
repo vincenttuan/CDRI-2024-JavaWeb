@@ -29,20 +29,30 @@ public class GuestBookServiceImpl implements GuestBookService {
 
 	@Override
 	public boolean updateUsername(Integer id, String username) {
-		
-		return false;
+		GuestBook gb = dao.findById(id);
+		if(gb == null) {
+			return false;
+		}
+		gb.setUsername(username);
+		int rowcount = dao.update(gb);
+		return rowcount == 1;
 	}
 
 	@Override
 	public boolean updateContent(Integer id, String content) {
-		// TODO Auto-generated method stub
-		return false;
+		GuestBook gb = dao.findById(id);
+		if(gb == null) {
+			return false;
+		}
+		gb.setContent(content);
+		int rowcount = dao.update(gb);
+		return rowcount == 1;
 	}
 
 	@Override
 	public boolean removeById(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		int rowcount = dao.deleteById(id);
+		return rowcount == 1;
 	}
 	
 }
