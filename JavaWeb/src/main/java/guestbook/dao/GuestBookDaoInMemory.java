@@ -1,5 +1,6 @@
 package guestbook.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -23,20 +24,29 @@ public class GuestBookDaoInMemory implements GuestBookDao {
 
 	@Override
 	public List<GuestBook> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return guestBooks;
 	}
 
 	@Override
 	public int update(GuestBook guestBook) {
-		// TODO Auto-generated method stub
-		return 0;
+		GuestBook guestBookUpt = findById(guestBook.getId());
+		if(guestBookUpt == null) {
+			return 0;
+		}
+		guestBookUpt.setUsername(guestBook.getUsername());
+		guestBookUpt.setContent(guestBook.getContent());
+		guestBookUpt.setUpdateDate(new Date());
+		return 1;
 	}
 
 	@Override
 	public int deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		return 0;
+		GuestBook guestBookDel = findById(id);
+		if(guestBookDel == null) {
+			return 0;
+		}
+		guestBooks.remove(guestBookDel);
+		return 1;
 	}
 
 }
