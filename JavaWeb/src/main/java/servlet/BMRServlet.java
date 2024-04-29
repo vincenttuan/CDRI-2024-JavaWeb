@@ -23,6 +23,9 @@ public class BMRServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 處理資料
+		// 透過 setAttribute 將 bmrList 放到 req 屬性中的技術
+		// 就可以將 bmrList 傳遞給 jsp
+		req.setAttribute("bmrList", bmrList);
 		
 		// 分派到 jsp
 		RequestDispatcher rd = req.getRequestDispatcher("/bmr_list.jsp");
