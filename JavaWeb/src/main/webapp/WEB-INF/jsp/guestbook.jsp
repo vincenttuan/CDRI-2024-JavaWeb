@@ -3,9 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-	List<GuestBook> guestBooks = (List)request.getAttribute("guestBooks");
-%>
+
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
@@ -25,30 +23,7 @@
 			</fieldset>
 		</form>
 		<!-- 留言列表 -->
-		<div class="pure-form">
-			<fieldset>
-				<legend>GuestBook List</legend>
-				<table class="pure-table pure-table-bordered">
-					<thead>
-						<tr>
-							<th>Id</th><th>Username</th><th>Content</th><th>Create Date</th><th>Update Date</th><th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% for(GuestBook gb : guestBooks) { %>
-							<tr>
-								<td><%=gb.getId() %></td>
-								<td><%=gb.getUsername() %></td>
-								<td><%=gb.getContent() %></td>
-								<td><%=gb.getCreateDate() %></td>
-								<td><%=gb.getUpdateDate() %></td>
-								<td><a href="/JavaWeb/guestbook?deleteId=<%=gb.getId() %>" class="button-error pure-button">Delete</a></td>
-							</tr>
-						<% } %>
-					</tbody>
-				</table>
-			</fieldset>	
-		</div>
+		<%@include file="guestbook_content.jspf" %>
 		
 	</body>
 </html>
