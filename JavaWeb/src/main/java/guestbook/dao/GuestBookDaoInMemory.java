@@ -15,8 +15,8 @@ public class GuestBookDaoInMemory implements GuestBookDao {
 	public int create(GuestBook guestBook) {
 		// 找到 guestBooks 中 id 的最大值
 		Integer maxId = guestBooks.stream()
-				.map(GuestBook::getId)
-				.max(Integer::compareTo)
+				.map(GuestBook::getId) // .map(gb -> gb.getId())
+				.max(Integer::compareTo) // .max((o1, o2) -> Integer.compare(o1, o2))
 				.orElse(0);
 		maxId += 1; // 將最大值加一
 		guestBook.setId(maxId);
