@@ -9,6 +9,6 @@
 		<title>GuestBook</title>
 	</head>
 	<body>
-	
+		GuestBook Page
 	</body>
 </html>
