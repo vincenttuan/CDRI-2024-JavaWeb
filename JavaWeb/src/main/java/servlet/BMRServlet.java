@@ -72,13 +72,3 @@ public class BMRServlet extends HttpServlet {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
