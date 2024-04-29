@@ -19,7 +19,7 @@
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
-					<th>Id</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th>
+					<th>Id</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th><th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +33,7 @@
 					<td><%=map.get("height") %></td>
 					<td><%=map.get("weight") %></td>
 					<td><%=map.get("age") %></td>
+					<td><a href="/JavaWeb/servlet/bmr?deleteId=<%=i %>" class="button-error pure-button">Delete</a></td>
 				</tr>
 				<% } %>
 			</tbody>
