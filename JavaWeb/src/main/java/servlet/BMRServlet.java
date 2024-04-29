@@ -10,6 +10,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/servlet/bmr")
 public class BMRServlet extends HttpServlet {
+	
+	// 紀錄查詢
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 處理資料
+		
+		// 分派到 jsp
+		
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
