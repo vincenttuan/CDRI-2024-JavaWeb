@@ -9,6 +9,6 @@
 		<title>BMR List</title>
 	</head>
 	<body>
-		BMR List
+		BMR List: <%=request.getAttribute("bmrList") %>
 	</body>
 </html>
