@@ -28,7 +28,7 @@ public class BMRServlet extends HttpServlet {
 		req.setAttribute("bmrList", bmrList);
 		
 		// 分派到 jsp
-		RequestDispatcher rd = req.getRequestDispatcher("/bmr_list.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/bmr_list.jsp");
 		rd.forward(req, resp);
 	}
 
