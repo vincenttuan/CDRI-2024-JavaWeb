@@ -19,12 +19,14 @@
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
-					<th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th>
+					<th>Id</th><th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th>
 				</tr>
 			</thead>
 			<tbody>
-				<% for(Map<String, Object> map : bmrList) { %>
+				<% for(int i=0;i<bmrList.size();i++) { %>
 				<tr>
+					<% Map<String, Object> map = bmrList.get(i); %>
+					<td><%=i %></td>
 					<td><%=map.get("name") %></td>
 					<td><%=map.get("gender") %></td>
 					<td><%=map.get("age") %></td>
