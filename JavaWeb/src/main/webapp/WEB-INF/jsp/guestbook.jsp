@@ -20,7 +20,7 @@
 				<legend>GuestBook Add</legend>
 				姓名: <input type="text" id="username" name="username" placeholder="請輸入姓名" required /><p>
 				留言: <br> 
-				<textarea rows="5" cols="10" id="content" name="content" placeholder="請留言" required></textarea><p>
+				<textarea rows="5" cols="20" id="content" name="content" placeholder="請留言" required></textarea><p>
 				<button type="submit" class="pure-button pure-button-primary">新增留言</button>
 			</fieldset>
 		</form>
