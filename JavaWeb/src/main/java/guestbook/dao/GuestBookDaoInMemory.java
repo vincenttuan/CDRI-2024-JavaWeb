@@ -20,6 +20,7 @@ public class GuestBookDaoInMemory implements GuestBookDao {
 				.orElse(0);
 		maxId += 1; // 將最大值加一
 		guestBook.setId(maxId);
+		guestBook.setCreateDate(new Date());
 		guestBooks.add(guestBook);
 		return 1;
 	}
