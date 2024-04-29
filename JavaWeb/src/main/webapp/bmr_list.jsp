@@ -14,7 +14,28 @@
 		<meta charset="UTF-8">
 		<title>BMR List</title>
 	</head>
-	<body>
-		BMR List: <%=bmrList %>
+	<body style="padding: 15px">
+		<h2>BMR List:</h2>
+		<table class="pure-table pure-tabled-bordered">
+			<thead>
+				<tr>
+					<th>Name</th><th>Gender</th><th>Age</th><th>Height</th><th>Weight</th><th>BMR</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(Map<String, Object> map : bmrList) { %>
+				<tr>
+					<td><%=map.get("name") %></td>
+					<td><%=map.get("gender") %></td>
+					<td><%=map.get("age") %></td>
+					<td><%=map.get("height") %></td>
+					<td><%=map.get("weight") %></td>
+					<td><%=map.get("age") %></td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<p>
+		<a href="/JavaWeb/bmr.html" class="pure-button pure-button-primary" >回上一頁</a>
 	</body>
 </html>
