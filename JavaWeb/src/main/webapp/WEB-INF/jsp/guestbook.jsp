@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+		<link rel="stylesheet" href="/JavaWeb/css/buttons.css">
+		<meta charset="UTF-8">
+		<title>GuestBook</title>
+	</head>
+	<body>
+	
+	</body>
 </html>
