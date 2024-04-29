@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +18,8 @@ public class BMRServlet extends HttpServlet {
 		// 處理資料
 		
 		// 分派到 jsp
-		
+		RequestDispatcher rd = req.getRequestDispatcher("/bmr_list.jsp");
+		rd.forward(req, resp);
 	}
 
 	@Override
