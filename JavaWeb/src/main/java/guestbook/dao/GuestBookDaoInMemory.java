@@ -13,6 +13,13 @@ public class GuestBookDaoInMemory implements GuestBookDao {
 	
 	@Override
 	public int create(GuestBook guestBook) {
+		// 找到 guestBooks 中 id 的最大值
+		Integer maxId = guestBooks.stream()
+				.map(GuestBook::getId)
+				.max(Integer::compareTo)
+				.orElse(0);
+		maxId += 1; // 將最大值加一
+		guestBook.setId(maxId);
 		guestBooks.add(guestBook);
 		return 1;
 	}
