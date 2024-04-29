@@ -27,7 +27,7 @@ public class GuestBookDaoInMemory implements GuestBookDao {
 
 	@Override
 	public GuestBook findById(Integer id) {
-		return guestBooks.stream().filter(gb -> gb.getId().equals(id)).findFirst().orElseGet(null);
+		return guestBooks.stream().filter(gb -> gb.getId().equals(id)).findFirst().orElse(null);
 	}
 
 	@Override
