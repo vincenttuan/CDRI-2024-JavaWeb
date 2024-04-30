@@ -30,8 +30,8 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 	
 	@Override
 	public int create(GuestBook guestBook) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into guestbook(username, content) values(?, ?)";
+		return jdbcTemplate.update(sql, guestBook.getUsername(), guestBook.getContent());
 	}
 
 	@Override
