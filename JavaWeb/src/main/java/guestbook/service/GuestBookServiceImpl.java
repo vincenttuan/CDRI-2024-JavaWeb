@@ -4,11 +4,13 @@ import java.util.List;
 
 import guestbook.dao.GuestBookDao;
 import guestbook.dao.GuestBookDaoInMemory;
+import guestbook.dao.GuestBookDaoMySQL;
 import guestbook.model.GuestBook;
 
 public class GuestBookServiceImpl implements GuestBookService {
 	
-	private GuestBookDao dao = new GuestBookDaoInMemory();
+	//private GuestBookDao dao = new GuestBookDaoInMemory();
+	private GuestBookDao dao = new GuestBookDaoMySQL();
 	
 	@Override
 	public boolean add(String username, String content) {
