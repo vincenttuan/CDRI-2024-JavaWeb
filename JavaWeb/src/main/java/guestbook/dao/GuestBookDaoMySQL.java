@@ -2,6 +2,7 @@ package guestbook.dao;
 
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -36,8 +37,13 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 
 	@Override
 	public GuestBook findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, username, content, create_date, update_date from guestbook where id = ?";
+		try {
+			GuestBook guestBook = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(GuestBook.class), id);
+			return guestBook;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
