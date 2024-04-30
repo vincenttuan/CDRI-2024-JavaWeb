@@ -32,7 +32,7 @@
 					<td><%=gb.getContent() %></td>
 					<td><%=dateFormat(gb.getCreateDate()) %></td>
 					<td><%=dateFormat(gb.getUpdateDate()) %></td>
-					<td><a href="/JavaWeb/guestbook?updateId=<%=gb.getId() %>" class="button-success pure-button">Update</a></td>
+					<td><a href="/JavaWeb/guestbook/update?updateId=<%=gb.getId() %>" class="button-success pure-button">Update</a></td>
 					<td><a href="/JavaWeb/guestbook?deleteId=<%=gb.getId() %>" class="button-error pure-button">Delete</a></td>
 				</tr>
 			<% } %>
