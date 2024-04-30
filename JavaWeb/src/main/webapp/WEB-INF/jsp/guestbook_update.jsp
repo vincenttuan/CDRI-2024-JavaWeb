@@ -17,7 +17,7 @@
 		<form class="pure-form" action="/JavaWeb/guestbook/update" method="post">
 			<fieldset>
 				<legend>GuestBook Update</legend>
-				序號: <input type="text" id="id" name="id" value="<%=guestBook.getId() %>" /><p>
+				序號: <input type="text" id="id" name="id" value="<%=guestBook.getId() %>" readonly /><p>
 				姓名: <input type="text" id="username" name="username" value="<%=guestBook.getUsername() %>" placeholder="請輸入姓名" required /><p>
 				留言: <br> 
 				<textarea rows="5" cols="20" id="content" name="content" placeholder="請留言" required>
