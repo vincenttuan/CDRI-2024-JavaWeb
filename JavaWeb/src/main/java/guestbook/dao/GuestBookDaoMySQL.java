@@ -48,8 +48,8 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 
 	@Override
 	public List<GuestBook> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select id, username, content, create_date, update_date from guestbook order by id";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(GuestBook.class));
 	}
 
 	@Override
