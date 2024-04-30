@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	GuestBook guestBook = (GuestBook)request.getAttribute("guestbook");
+	GuestBook guestBook = (GuestBook)request.getAttribute("guestBook");
 %>
 <html>
 	<head>

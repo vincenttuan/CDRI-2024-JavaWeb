@@ -43,6 +43,7 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 			GuestBook guestBook = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(GuestBook.class), id);
 			return guestBook;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
