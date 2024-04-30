@@ -1,5 +1,6 @@
 package guestbook.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -54,8 +55,8 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 
 	@Override
 	public int update(GuestBook guestBook) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "update guestbook set username=?, content=?, update_date=? where id=?";
+		return jdbcTemplate.update(sql, guestBook.getUsername(), guestBook.getContent(), new Date(), guestBook.getId());
 	}
 
 	@Override
