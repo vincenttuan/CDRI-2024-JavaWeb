@@ -61,8 +61,8 @@ public class GuestBookDaoMySQL implements GuestBookDao {
 
 	@Override
 	public int deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from guestbook where id = ?";
+		return jdbcTemplate.update(sql, id);
 	}
 
 }
