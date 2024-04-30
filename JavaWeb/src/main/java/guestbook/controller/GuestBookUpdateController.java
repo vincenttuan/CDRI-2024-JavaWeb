@@ -37,7 +37,7 @@ public class GuestBookUpdateController extends HttpServlet {
 		String username = req.getParameter("username");
 		String content = req.getParameter("content");
 		
-		guestBookService.updateUsername(id, content);
+		guestBookService.updateUsername(id, username);
 		guestBookService.updateContent(id, content);
 		
 		// 透過 redirtect 重導到首頁(Client 外部重導)
