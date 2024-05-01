@@ -22,7 +22,7 @@
 			</fieldset>
 		</form>
 		<!-- Room列表 -->
-		<table>
+		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
 					<th>Room Id</th>
