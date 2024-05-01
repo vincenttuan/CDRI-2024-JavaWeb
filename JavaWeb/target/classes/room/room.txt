@@ -5,10 +5,17 @@
  +------+     +------------+     +---------+     +-----+
  
  model
- 	|-po (對應資料表的紀錄)
- 	   |- Room.java
- 	   |- BookingRoom.java
- 	|-dto (傳遞給HTML頁面的組合資料)
- 	   |- BookingRoomDto.java
+  |-po (對應資料表的紀錄)
+    |- Room.java
+ 	|- BookingRoom.java
+  |-dto (傳遞給HTML頁面的組合資料)
+    |- BookingRoomDto.java
 
- 	   
+dao
+ |-RoomDao.java (interface)
+ |-RoomDaoImpl.java
+ |-BookingRoomDao.java (interface)
+ |-BookingRoomDaoImpl.java
+
+
+ 
