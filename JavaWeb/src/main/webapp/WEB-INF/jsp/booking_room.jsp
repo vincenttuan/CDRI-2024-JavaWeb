@@ -17,10 +17,9 @@
 			<fieldset>
 				<legend>BookingRoom Add</legend>
 				Room Name: <select id="room_id">
-							<option value="101">101室</option>
-							<option value="202">202室</option>
-							<option value="303">303室</option>
-							<option value="404">404室</option>
+							<c:forEach items="${ rooms }" var="room">
+								<option value="${ room.roomId }">${ room.roomName }</option>
+							</c:forEach>
 						   </select><p>
 				Check In: <input type="date" id="checkin_date" name="checkin_date" /><p>
 				<button type="submit" class="pure-button pure-button-primary">Booking</button>
