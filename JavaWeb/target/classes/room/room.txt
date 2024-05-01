@@ -1,0 +1,14 @@
+訂房系統架構
+
+ +------+     +------------+     +---------+     +-----+
+ | HTML | --> | Controller | --> | Service | --> | Dao | --> MySQL(room, booking_room)
+ +------+     +------------+     +---------+     +-----+
+ 
+ model
+ 	|-po (對應資料表的紀錄)
+ 	   |- Room.java
+ 	   |- BookingRoom.java
+ 	|-dto (傳遞給HTML頁面的組合資料)
+ 	   |- BookingRoomDto.java
+
+ 	   
