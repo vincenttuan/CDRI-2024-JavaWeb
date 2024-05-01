@@ -56,23 +56,29 @@
 		</table>
 		<p>
 		<!-- BookingRoomCounts列表 -->
-		<table class="pure-table pure-table-bordered">
-			<thead>
-				<tr>
-					<th>Room Id</th>
-					<th>Room Name</th>
-					<th>Booking Count</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${bookingRoomCounts}" var="bookingRoomCount">
-					<tr>
-						<td>${ bookingRoomCount.roomId }</td>
-						<td>${ bookingRoomCount.roomName }</td>
-						<td>${ bookingRoomCount.bookingCount }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<div class="pure-form">
+			<fieldset>
+				<legend>統計列表</legend>
+				<table class="pure-table pure-table-bordered">
+					<thead>
+						<tr>
+							<th>Room Id</th>
+							<th>Room Name</th>
+							<th>Booking Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${bookingRoomCounts}" var="bookingRoomCount">
+							<tr>
+								<td>${ bookingRoomCount.roomId }</td>
+								<td>${ bookingRoomCount.roomName }</td>
+								<td>${ bookingRoomCount.bookingCount }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</fieldset>
+			
+		</div>
 </body>
 </html>
