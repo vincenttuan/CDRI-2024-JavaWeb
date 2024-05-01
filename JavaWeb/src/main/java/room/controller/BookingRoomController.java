@@ -42,8 +42,12 @@ public class BookingRoomController extends HttpServlet {
 			bookingRoomDtos.add(dto);
 		}
 		
+		// 取得所有 rooms 資料
+		List<Room> rooms = roomService.getRooms();
 		
+		// 設定要傳給 jsp 的資訊
 		req.setAttribute("bookingRoomDtos", bookingRoomDtos);
+		req.setAttribute("rooms", rooms);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/booking_room.jsp");
 		rd.forward(req, resp);
