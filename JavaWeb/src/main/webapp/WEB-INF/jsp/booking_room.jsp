@@ -54,7 +54,25 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<p>
 		<!-- BookingRoomCounts列表 -->
-		${ bookingRoomCounts }
+		<table class="pure-table pure-table-bordered">
+			<thead>
+				<tr>
+					<th>Room Id</th>
+					<th>Room Name</th>
+					<th>Booking Count</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${bookingRoomCounts}" var="bookingRoomCount">
+					<tr>
+						<td>${ bookingRoomCount.roomId }</td>
+						<td>${ bookingRoomCount.roomName }</td>
+						<td>${ bookingRoomCount.bookingCount }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 </body>
 </html>
