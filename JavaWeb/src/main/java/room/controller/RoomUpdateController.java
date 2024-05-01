@@ -21,7 +21,7 @@ public class RoomUpdateController extends HttpServlet {
 		// 取得 Room 資料
 		req.setAttribute("room", service.getRoom(roomId));
 		// 轉發至 Room 修改頁面
-		req.getRequestDispatcher("/WEB-INF/views/room/update.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/jsp/room_update.jsp").forward(req, resp);
 	}
 
 	@Override
