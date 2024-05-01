@@ -21,4 +21,8 @@ public class RoomService {
 		return roomDao.update(roomId, room) > 0;
 	}
 	
+	public boolean deleteRoom(Integer roomId) {
+		return roomDao.delete(roomId) > 0;
+	}
+	
 }
