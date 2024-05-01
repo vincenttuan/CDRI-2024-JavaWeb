@@ -12,4 +12,13 @@ public class RoomService {
 		return roomDao.create(room) > 0;
 	}
 	
+	public Room getRoom(Integer roomId) {
+		return roomDao.findById(roomId);
+	}
+	
+	public boolean updateRoom(Integer roomId, String roomName) {
+		Room room = new Room(roomId, roomName);
+		return roomDao.update(roomId, room) > 0;
+	}
+	
 }
