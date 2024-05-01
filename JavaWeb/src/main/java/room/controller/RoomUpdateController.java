@@ -13,7 +13,7 @@ import room.service.RoomService;
 @WebServlet("/room/update")
 public class RoomUpdateController extends HttpServlet {
 	private RoomService service = new RoomService();
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 取得 Room ID
