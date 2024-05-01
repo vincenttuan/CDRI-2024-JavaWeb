@@ -3,6 +3,12 @@
  +------+     +------------+     +---------+     +-----+
  | HTML | --> | Controller | --> | Service | --> | Dao | --> MySQL(room, booking_room)
  +------+     +------------+     +---------+     +-----+
+
+ +-----------------+     +----------------------+     +-------------+     +---------+
+ | room.jsp        | --> | RoomController       | --> | RoomService | --> | RoomDao | --> MySQL(room)
+ | room_update.jsp | --> | RoomUpdateController |     +-------------+     +---------+ 
+ +-----------------+     +----------------------+     
+
  
 model
  |-po (對應資料表的紀錄)
