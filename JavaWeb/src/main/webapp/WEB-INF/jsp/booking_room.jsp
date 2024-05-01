@@ -22,7 +22,7 @@
 							<option value="303">303室</option>
 							<option value="404">404室</option>
 						   </select><p>
-				Booking Date: <input type="date" id="checkin_date" name="checkin_date" /><p>
+				Check In: <input type="date" id="checkin_date" name="checkin_date" /><p>
 				<button type="submit" class="pure-button pure-button-primary">Booking</button>
 			</fieldset>
 		</form>
@@ -34,7 +34,7 @@
 					<th>Room Id</th>
 					<th>Room Name</th>
 					<th>User Id</th>
-					<th>Checkin Date</th>
+					<th>Check In</th>
 					<th>修改</th>
 					<th>刪除</th>
 				</tr>
