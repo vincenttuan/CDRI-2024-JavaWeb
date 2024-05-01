@@ -29,3 +29,5 @@ insert into room (room_id, room_name) values (404, '404室');
 insert into booking_room(room_id, user_id, checkin_date) values(101, 1, '2024-05-01 00:00:00');
 insert into booking_room(room_id, user_id, checkin_date) values(101, 2, '2024-05-02 00:00:00');
 insert into booking_room(room_id, user_id, checkin_date) values(202, 1, '2024-05-05 00:00:00');
+
+
