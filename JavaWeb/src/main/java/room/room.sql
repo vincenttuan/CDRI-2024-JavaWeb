@@ -38,3 +38,5 @@ FROM room r
 LEFT JOIN booking_room b ON r.room_id = b.room_id
 GROUP BY r.room_id, r.room_name;
 
+
+
