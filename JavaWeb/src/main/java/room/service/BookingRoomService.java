@@ -12,9 +12,8 @@ import room.model.po.BookingRoom;
 public class BookingRoomService {
 	private BookingRoomDao bookingRoomDao = new BookingRoomDaoImpl();
 	
-	public boolean addBookingRoom(Integer bookingId, Integer roomId, Integer userId, String checkinDateString) {
+	public boolean addBookingRoom(Integer roomId, Integer userId, String checkinDateString) {
 		BookingRoom bookingRoom = new BookingRoom();
-		bookingRoom.setBookingId(bookingId);
 		bookingRoom.setRoomId(roomId);
 		bookingRoom.setUserId(userId);
 		
