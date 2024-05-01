@@ -38,7 +38,7 @@ public class RoomDaoImpl implements RoomDao {
 	@Override
 	public int update(Integer roomId, Room room) {
 		String sql = "update room set room_name = ? where room_id = ?";
-		return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomId());
+		return jdbcTemplate.update(sql, room.getRoomName(), roomId);
 	}
 
 	@Override
