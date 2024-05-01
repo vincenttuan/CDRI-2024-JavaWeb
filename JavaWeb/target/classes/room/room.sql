@@ -30,4 +30,11 @@ insert into booking_room(room_id, user_id, checkin_date) values(101, 1, '2024-05
 insert into booking_room(room_id, user_id, checkin_date) values(101, 2, '2024-05-02 00:00:00');
 insert into booking_room(room_id, user_id, checkin_date) values(202, 1, '2024-05-05 00:00:00');
 
+-- 計算每個房間的預訂次數，對於沒有預訂的房間顯示 0
+SELECT r.room_id, 
+       r.room_name,
+       COALESCE(COUNT(b.booking_id), 0) AS booking_count
+FROM room r
+LEFT JOIN booking_room b ON r.room_id = b.room_id
+GROUP BY r.room_id, r.room_name;
 
