@@ -25,8 +25,8 @@ public class RoomDaoImpl implements RoomDao {
 
 	@Override
 	public List<Room> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select room_id, room_name from room";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
 	}
 
 	@Override
