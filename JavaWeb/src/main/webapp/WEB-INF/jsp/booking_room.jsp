@@ -40,7 +40,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+				<c:forEach items="${bookingRooms}" var="bookingRoom">
+					<tr>
+						<td>${ bookingRoom.bookingId }</td>
+						<td>${ bookingRoom.roomId }</td>
+						<td></td>
+						<td>${ bookingRoom.userId }</td>
+						<td>${ bookingRoom.checkinDate }</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		
