@@ -31,20 +31,20 @@ public class RoomDaoImpl implements RoomDao {
 
 	@Override
 	public int create(Room room) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into room(room_id, room_name) values(?, ?)";
+		return jdbcTemplate.update(sql, room.getRoomId(), room.getRoomName());
 	}
 
 	@Override
 	public int update(Integer roomId, Room room) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "update room set room_name = ? where room_id = ?";
+		return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomId());
 	}
 
 	@Override
 	public int delete(Integer roomId) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from room where room_id = ?";
+		return jdbcTemplate.update(sql, roomId);
 	}
 
 }
