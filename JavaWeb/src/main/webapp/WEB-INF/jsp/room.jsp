@@ -37,7 +37,7 @@
 						<td>${room.roomId}</td>
 						<td>${room.roomName}</td>
 						<td>
-							<a href="/JavaWeb/room/update?deleteId=${room.roomId}" class="pure-button">編輯</a>
+							<a href="/JavaWeb/room/update?roomId=${room.roomId}" class="pure-button">編輯</a>
 						</td>
 						<td>
 							<a href="/JavaWeb/room?deleteId=${room.roomId}" class="pure-button">刪除</a>
