@@ -19,3 +19,13 @@ create table if not exists booking_room(
     foreign key (room_id) references room(room_id),
     CONSTRAINT unique_room_id_and_checkin_date UNIQUE(room_id, checkin_date)
 );
+
+-- 建立預設資料
+insert into room (room_id, room_name) values (101, '101室');
+insert into room (room_id, room_name) values (202, '202室');
+insert into room (room_id, room_name) values (303, '303室');
+insert into room (room_id, room_name) values (404, '404室');
+
+insert into booking_room(room_id, user_id, checkin_date) values(101, 1, '2024-05-01 00:00:00');
+insert into booking_room(room_id, user_id, checkin_date) values(101, 2, '2024-05-02 00:00:00');
+insert into booking_room(room_id, user_id, checkin_date) values(202, 1, '2024-05-05 00:00:00');
