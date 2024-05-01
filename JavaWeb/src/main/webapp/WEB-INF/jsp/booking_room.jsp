@@ -35,6 +35,7 @@
 					<th>Room Name</th>
 					<th>User Id</th>
 					<th>Check In</th>
+					<th>Create Time</th>
 					<th>修改</th>
 					<th>刪除</th>
 				</tr>
@@ -47,6 +48,7 @@
 						<td>${ bookingRoomDto.room.roomName }</td>
 						<td>${ bookingRoomDto.userId }</td>
 						<td>${ bookingRoomDto.checkinDate }</td>
+						<td>${ bookingRoomDto.createTime }</td>
 						<td></td>
 						<td></td>
 					</tr>
