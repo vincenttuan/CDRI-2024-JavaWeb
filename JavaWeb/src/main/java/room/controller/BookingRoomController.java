@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import room.dao.BookingRoomDao;
+import room.model.dto.BookingRoomCount;
 import room.model.dto.BookingRoomDto;
 import room.model.po.BookingRoom;
 import room.model.po.Room;
@@ -44,10 +45,13 @@ public class BookingRoomController extends HttpServlet {
 		
 		// 取得所有 rooms 資料
 		List<Room> rooms = roomService.getRooms();
+		List<BookingRoomCount> bookingRoomCounts = bookingRoomService.getBookingRoomCounts();
 		
 		// 設定要傳給 jsp 的資訊
 		req.setAttribute("bookingRoomDtos", bookingRoomDtos);
+		req.setAttribute("bookingRoomCounts", bookingRoomCounts);
 		req.setAttribute("rooms", rooms);
+		
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/booking_room.jsp");
 		rd.forward(req, resp);
