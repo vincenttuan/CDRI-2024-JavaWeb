@@ -7,21 +7,28 @@
   
   <dependencies>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+	<dependency>
+	    <groupId>jakarta.servlet.jsp.jstl</groupId>
+	    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+	    <version>3.0.0</version>
+	</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jdbc</artifactId>
 		<version>4.3.1.RELEASE</version>
 	</dependency>
 
-	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		<version>8.0.33</version>
 	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
 	    <artifactId>lombok</artifactId>
