@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import room.model.dto.BookingRoomCount;
 import room.model.po.BookingRoom;
 
 public class BookingRoomDaoImpl implements BookingRoomDao {
@@ -49,6 +50,17 @@ public class BookingRoomDaoImpl implements BookingRoomDao {
 	public int delete(Integer bookingId) {
 		String sql = "DELETE FROM booking_room WHERE booking_id = ?";
 		return jdbcTemplate.update(sql, bookingId);
+	}
+
+	@Override
+	public List<BookingRoomCount> getBookingRoomCounts() {
+		String sql = "SELECT r.room_id,  "
+				+ "       r.room_name, "
+				+ "       COALESCE(COUNT(b.booking_id), 0) AS booking_count "
+				+ "FROM room r "
+				+ "LEFT JOIN booking_room b ON r.room_id = b.room_id "
+				+ "GROUP BY r.room_id, r.room_name;";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(BookingRoomCount.class));
 	}
 
 }
