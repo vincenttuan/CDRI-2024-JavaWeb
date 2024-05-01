@@ -54,6 +54,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
+		<!-- BookingRoomCounts列表 -->
+		${ bookingRoomCounts }
 </body>
 </html>
