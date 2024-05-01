@@ -23,5 +23,12 @@ dao
  |-BookingRoomDao.java (interface)
  |-BookingRoomDaoImpl.java
 
-
+service
+ |-RoomService.java
+ |-BookingRoomService.java
  
+controller
+ |-RoomController.java
+ |-RoomUpdateController.java
+ 
+  
