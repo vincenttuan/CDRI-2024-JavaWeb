@@ -38,5 +38,11 @@ FROM room r
 LEFT JOIN booking_room b ON r.room_id = b.room_id
 GROUP BY r.room_id, r.room_name;
 
+這個查詢的工作原理如下：
+從 room 表中選取所有房間。
+使用 LEFT JOIN 語句將 room 表和 booking_room 表連接起來，連接條件是它們的 room_id。這確保了即使某些房間沒有預訂記錄，也會被包括在內。
+使用 GROUP BY 語句按房間 ID 和房間名稱分組。
+使用 COUNT(b.booking_id) 計算每組的預訂數量。COALESCE 函數確保了即使某個房間沒有任何預訂，也會顯示為 0 而不是 null。
+這個查詢將為您提供每個房間的預訂次數的清單，並且對於沒有預訂的房間也會包含在內，預訂次數顯示為 0。這樣您就能完整地看到所有房間的預訂情況。
 
 
