@@ -16,7 +16,7 @@
 		<form class="pure-form" action="/JavaWeb/bookingroom" method="post">
 			<fieldset>
 				<legend>BookingRoom Add</legend>
-				Room Name: <select id="room_id">
+				Room Name: <select id="room_id" name="room_id">
 							<c:forEach items="${ rooms }" var="room">
 								<option value="${ room.roomId }">${ room.roomName }</option>
 							</c:forEach>
