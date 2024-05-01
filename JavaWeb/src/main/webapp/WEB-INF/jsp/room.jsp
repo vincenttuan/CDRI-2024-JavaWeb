@@ -22,6 +22,30 @@
 			</fieldset>
 		</form>
 		<!-- Room列表 -->
-	
+		<table>
+			<thead>
+				<tr>
+					<th>Room Id</th>
+					<th>Room Name</th>
+					<th>修改</th>
+					<th>刪除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${rooms}" var="room">
+					<tr>
+						<td>${room.roomId}</td>
+						<td>${room.roomName}</td>
+						<td>
+							<a href="/JavaWeb/room/update?deleteId=${room.roomId}" class="pure-button">編輯</a>
+						</td>
+						<td>
+							<a href="/JavaWeb/room?deleteId=${room.roomId}" class="pure-button">刪除</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
 </body>
 </html>
