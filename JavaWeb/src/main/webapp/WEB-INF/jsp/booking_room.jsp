@@ -40,13 +40,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${bookingRooms}" var="bookingRoom">
+				<c:forEach items="${bookingRoomDtos}" var="bookingRoomDto">
 					<tr>
-						<td>${ bookingRoom.bookingId }</td>
-						<td>${ bookingRoom.roomId }</td>
-						<td></td>
-						<td>${ bookingRoom.userId }</td>
-						<td>${ bookingRoom.checkinDate }</td>
+						<td>${ bookingRoomDto.bookingId }</td>
+						<td>${ bookingRoomDto.room.roomId }</td>
+						<td>${ bookingRoomDto.room.roomName }</td>
+						<td>${ bookingRoomDto.userId }</td>
+						<td>${ bookingRoomDto.checkinDate }</td>
 						<td></td>
 						<td></td>
 					</tr>
