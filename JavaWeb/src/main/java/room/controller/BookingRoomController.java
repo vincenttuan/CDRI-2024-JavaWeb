@@ -43,7 +43,7 @@ public class BookingRoomController extends HttpServlet {
 		}
 		
 		
-		req.setAttribute("BookingRoomDto", bookingRoomDtos);
+		req.setAttribute("BookingRoomDtos", bookingRoomDtos);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/booking_room.jsp");
 		rd.forward(req, resp);
