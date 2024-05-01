@@ -9,6 +9,10 @@ public class JdbcTemplateBuild {
 	private static JdbcTemplate jdbcTemplate;
 	
 	static {
+		init();
+	}
+	
+	private static void init() {
 		String driverName = "com.mysql.cj.jdbc.Driver";
 		String dbURL = "jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei";
 		String username = "root";
@@ -25,11 +29,15 @@ public class JdbcTemplateBuild {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-	private JdbcTemplateBuild() {
-		
+	public static JdbcTemplate getInstance() {
+		if(jdbcTemplate == null) {
+			init();
+		}
+		return jdbcTemplate;
 	}
 	
-	public static JdbcTemplate getInstance() {
-		return jdbcTemplate;
+
+	private JdbcTemplateBuild() {
+		
 	}
 }
