@@ -4,4 +4,30 @@
  | HTML | --> | Controller | --> | Service | --> | Dao | --> MySQL(guestbook)
  +------+     +------------+     +---------+     +-----+
 
+View:
+ guestbook.jsp (主頁-含新增與列表)
+ guestbook_content.jspf (列表內容)
+ guestbook_result.jsp (新增完成頁面)
+ guestbook_update.jsp (修改頁面)
  
+Controller:
+ |-GuestBookController.java
+	|- GET (重導到首頁/刪除紀錄)
+	|- POST (新增紀錄)
+ |-GuestBookUpdateController.java
+ 	|- GET (得到要修改的紀錄)
+ 	|- POST (修改紀錄)
+
+Service:
+ |-GuestBookService.java 介面(CRUD)
+ |-GuestBookServiceImpl.java 實作(CRUD)
+
+Dao:
+ |-GuestBookDao 介面(CRUD)
+ |-GuestBookDaoInMemory 實作(CRUD InMemory 版本)
+ |-GuestBookDaoMySQL 實作(CRUD MySQL版本-利用 JdbcTemplate)
+
+
+
+
+ 	
