@@ -18,7 +18,15 @@ public class PassCodeFilter extends HttpFilter {
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		System.out.println("PassCodeFilter 過濾");
+		System.out.println("PassCodeFilter 過濾 " + request.getMethod());
+		
+		if(request.getMethod().equals("GET")) {
+			// 檢查 code 是否等於 1234
+			if(request.getParameter("code") == null || !request.getParameter("code").equals("1234")) {
+				response.getWriter().print("PassCode Error !");
+				return;
+			}
+		}
 		// 放行
 		chain.doFilter(request, response);
 	}
