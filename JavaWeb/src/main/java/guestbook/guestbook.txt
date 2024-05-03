@@ -4,6 +4,18 @@
  | HTML | --> | Controller | --> | Service | --> | Dao | --> MySQL(guestbook)
  +------+     +------------+     +---------+     +-----+
 
+訪客留言系統 URL 設計:
+http://localhost/JavaWeb
++--------+--------------------------------+-------------------------------------
+| Method | URI                            | Memo
++--------+--------------------------------+-------------------------------------
+|GET     | /guestbook                     | 進入到GuestBook首頁
+|GET     | /guestbook?deleteId=123        | 刪除指定GuestBook紀錄
+|POST    | /guestbook                     | 新增GuestBook紀錄
+|GET     | /guestbook/update?updateId=123 | 進入到GuestBook修改頁面, 並指定要修改的紀錄
+|POST    | /guestbook/update              | 修改GuestBook紀錄
++--------+--------------------------------+-------------------------------------
+
 model:
  |- GuestBook.java 設定/定義訪客紀錄資料
 
