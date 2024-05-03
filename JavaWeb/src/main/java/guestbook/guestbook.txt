@@ -30,7 +30,9 @@ Dao:
  |-GuestBookDaoInMemory 實作(CRUD InMemory 版本)
  |-GuestBookDaoMySQL 實作(CRUD MySQL版本-利用 JdbcTemplate)
 
-
+filter: (額外新增)
+ |-UTF8EncodeFilter.java (過濾 /guestbook/* 路徑下所有內容都必須支援 UTF-8 編碼)
+ |-PassCodeFilter.java (過濾 /guestbook 路徑必須帶入 ?code=1234 才可以進入首頁)
 
 
 
