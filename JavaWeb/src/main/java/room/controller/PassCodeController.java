@@ -22,7 +22,7 @@ public class PassCodeController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 取得驗證碼
-		String passCode = String.format("04d", new Random().nextInt(10000)); // 0000~9999 的隨機數
+		String passCode = String.format("%04d", new Random().nextInt(10000)); // 0000~9999 的隨機數
 		System.out.println("驗證碼:" + passCode);
 		// 將驗證碼隨放到 session 屬性中, 便於給 PassCodeFilter.java 使用
 		req.setAttribute("passCode", passCode);
