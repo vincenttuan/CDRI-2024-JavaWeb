@@ -9,6 +9,19 @@
  | room_update.jsp | --> | RoomUpdateController |     +-------------+     +---------+ 
  +-----------------+     +----------------------+     
 
+訂房系統 URL 設計:
+http://localhost/JavaWeb
++--------+---------------------------+-------------------------------------
+| Method | Servlet Path              | Memo
++--------+---------------------------+-------------------------------------
+|GET     | /room                     | 進入到room首頁
+|GET     | /room?deleteId=123        | 刪除指定room紀錄
+|POST    | /room                     | 新增room紀錄
+|GET     | /room/update?roomId=123   | 進入到room修改頁面, 並指定要修改的紀錄
+|POST    | /room/update              | 修改room紀錄
+|GET     | /bookingroom              | 進入到bookingroom首頁
+|POST    | /bookingroom              | 新增bookingroom紀錄
++--------+---------------------------+-------------------------------------
  
 model
  |-po (對應資料表的紀錄)
