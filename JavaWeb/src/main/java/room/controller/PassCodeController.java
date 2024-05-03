@@ -4,16 +4,39 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 // 可以自動生成 PassCode
 @WebServlet("/passcode")
 public class PassCodeController extends HttpServlet {
 	
-	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 取得驗證碼
+		String passCode = String.format("04d", new Random().nextInt(10000)); // 0000~9999 的隨機數
+		System.out.println("驗證碼:" + passCode);
+		// 將驗證碼隨放到 session 屬性中, 便於給 PassCodeFilter.java 使用
+		req.setAttribute("passCode", passCode);
+		
+		try {
+			// 取得圖片資訊
+			BufferedImage img = getPassCodeImage(passCode);
+			// 發送圖片(使用 resp.getOutputStream() 表示非文字資料)
+			ImageIO.write(img, "JPEG", resp.getOutputStream());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	// 產生4個數字的圖檔 (BufferedImage)
 	private BufferedImage getPassCodeImage(String passCode) {
 		int w = 80; // 圖寬
