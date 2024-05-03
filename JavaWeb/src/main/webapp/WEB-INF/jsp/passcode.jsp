@@ -13,7 +13,7 @@
 		<form class="pure-form" method="post">
 			<fieldset>
 				<legend>Pass Code</legend>
-				Pass Code: <input type="number" id="passcode" name="passcode" placeholder="請輸入passcode" required /><p>
+				Code: <input type="number" id="code" name="code" placeholder="請輸入passcode" required /><p>
 				<button type="submit" class="pure-button pure-button-primary">驗證</button>
 			</fieldset>
 		</form>
