@@ -3,6 +3,7 @@ package room.filter;
 import java.io.IOException;
 
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
@@ -28,7 +29,9 @@ public class PassCodeFilter extends HttpFilter {
 		} else if("1234".equals(session.getAttribute("code")+"")) { // 檢查 session["code"] 的內容是否是 1234
 			chain.doFilter(request, response); // pass
 		} else {
-			response.getWriter().print("PassCode Error !");
+			//response.getWriter().print("PassCode Error !");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/passcode.jsp");
+			rd.forward(request, response);
 		}
 		
 	}
