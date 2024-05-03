@@ -9,14 +9,21 @@ import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// 過濾/攔截
 @WebFilter("/guestbook/*")
-public class StopFilter extends HttpFilter {
+public class UTF8EncodeFilter extends HttpFilter {
 
 	@Override
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		response.getWriter().print("Stop!");
+		// 編碼
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
+		//response.getWriter().print("UTF8Encode!");
+		chain.doFilter(request, response); // 往下繼續執行(放行)
 		
 	}
 
