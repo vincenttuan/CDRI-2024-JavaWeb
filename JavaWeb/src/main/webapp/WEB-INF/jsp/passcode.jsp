@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
     
 <!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-		<link rel="stylesheet" href="/JavaWeb/css/buttons.css">
 		<meta charset="UTF-8">
 		<title>Pass Code</title>
 	</head>
@@ -20,7 +17,5 @@
 				<button type="submit" class="pure-button pure-button-primary">驗證</button>
 			</fieldset>
 		</form>
-		
-		
-</body>
+	</body>
 </html>
