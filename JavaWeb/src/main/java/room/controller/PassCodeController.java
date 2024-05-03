@@ -56,7 +56,7 @@ public class PassCodeController extends HttpServlet {
 		// 加入干擾線
 		g.setColor(Color.GRAY); 
 		Random random = new Random();
-		for(int i=1;i<=10;i++) {
+		for(int i=1;i<=20;i++) {
 			int x1 = random.nextInt(w);
 			int y1 = random.nextInt(h);
 			int x2 = random.nextInt(w);

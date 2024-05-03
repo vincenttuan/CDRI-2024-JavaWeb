@@ -13,7 +13,9 @@
 		<form class="pure-form" method="get">
 			<fieldset>
 				<legend>Pass Code</legend>
-				Code: <input type="number" id="code" name="code" placeholder="請輸入passcode" required /><p>
+				Code: <input type="number" id="code" name="code" placeholder="請輸入passcode" required />
+				<img src="/JavaWeb/passcode" valign="middle">
+				<p>
 				<button type="submit" class="pure-button pure-button-primary">驗證</button>
 			</fieldset>
 		</form>
