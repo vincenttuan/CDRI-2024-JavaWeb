@@ -24,7 +24,7 @@ public class PassCodeFilter extends HttpFilter {
 		String code = request.getParameter("code") == null? "" : request.getParameter("code");
 		// 取得 session 中的 passCode
 		String passCode = session.getAttribute("passCode") + "";
-		
+		System.out.println(code + ", " + passCode);
 		if(code.equals(passCode)) { // 檢查參數 code 是否等於 passCode
 			// 將 code 的值寫入到 session 屬性中
 			session.setAttribute("code", code);

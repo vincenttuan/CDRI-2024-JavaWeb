@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 // 可以自動生成 PassCode
 @WebServlet("/passcode")
@@ -25,7 +26,8 @@ public class PassCodeController extends HttpServlet {
 		String passCode = String.format("%04d", new Random().nextInt(10000)); // 0000~9999 的隨機數
 		System.out.println("驗證碼:" + passCode);
 		// 將驗證碼隨放到 session 屬性中, 便於給 PassCodeFilter.java 使用
-		req.setAttribute("passCode", passCode);
+		HttpSession session = req.getSession();
+		session.setAttribute("passCode", passCode);
 		
 		try {
 			// 取得圖片資訊
