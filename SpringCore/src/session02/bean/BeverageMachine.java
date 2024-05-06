@@ -1,6 +1,7 @@
 package session02.bean;
 
 public class BeverageMachine {
+	
 	private Beverage beverage;
 	
 	public BeverageMachine() {
