@@ -1,11 +1,9 @@
 package session02.test;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import session02.bean.BeverageMachine;
-import session02.config.BeverageConfig;
 
 // 使用 java	配置在執行時要加上 VM 參數: --add-opens java.base/java.lang=ALL-UNNAMED
 public class TestBeverage {
