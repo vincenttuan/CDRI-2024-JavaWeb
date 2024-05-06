@@ -1,7 +1,5 @@
 package session03.bean;
 
-import java.util.List;
-
 public class LibraryManager {
 	
 	private Book comicBook;
