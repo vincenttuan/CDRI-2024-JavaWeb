@@ -1,5 +1,7 @@
 package session02.bean;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class BeverageMachine {
 	private Beverage beverage;
 	
@@ -8,7 +10,7 @@ public class BeverageMachine {
 	}
 	
 	// 建構子注入
-	public BeverageMachine(Beverage beverage) {
+	public BeverageMachine(@Qualifier("coffee") Beverage beverage) {
 		this.beverage = beverage;
 	}
 
