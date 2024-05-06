@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import session01.bean.Hello;
 import session01.bean.Lotto;
 import session01.config.SpringJavaConfig;
+import session01.config.SpringJavaConfig2;
 
 //執行時請加入 VM 參數: --add-opens java.base/java.lang=ALL-UNNAMED
 //整體來說，這行命令的意思是："在運行時，允許所有未命名的模組訪問 java.base 模組中的 java.lang 包"。
@@ -13,7 +14,8 @@ import session01.config.SpringJavaConfig;
 public class TestHelloAndLotto {
 	public static void main(String[] args) {
 		
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		//ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig2.class);
 		Hello hello = ctx.getBean("hello", Hello.class);
 		System.out.println(hello.getToday());
 		Lotto lotto1 = ctx.getBean("lotto", Lotto.class);
