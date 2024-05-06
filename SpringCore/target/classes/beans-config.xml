@@ -17,6 +17,8 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd"> 
 	
+	<!-- 定義一個 Hello 實體 -->
+	<bean id="hello" class="session01.bean.Hello" />
 	
 		
 </beans>	
