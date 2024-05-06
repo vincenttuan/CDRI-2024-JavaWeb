@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "session04.bean")
+@ComponentScan(basePackages = {"session04.bean"})
 public class FoodConfig {
 
 }
