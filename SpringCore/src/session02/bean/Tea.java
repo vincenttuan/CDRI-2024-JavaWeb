@@ -2,7 +2,6 @@ package session02.bean;
 
 import org.springframework.stereotype.Component;
 
-@Component("tea")
 public class Tea implements Beverage {
 
 	@Override

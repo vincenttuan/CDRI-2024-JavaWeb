@@ -3,7 +3,6 @@ package session02.bean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("beverageMachine")
 public class BeverageMachine {
 	private Beverage beverage;
 	
@@ -12,7 +11,7 @@ public class BeverageMachine {
 	}
 	
 	// 建構子注入
-	public BeverageMachine(@Qualifier("coffee") Beverage beverage) {
+	public BeverageMachine(Beverage beverage) {
 		this.beverage = beverage;
 	}
 

@@ -19,7 +19,6 @@
 	
 	<!-- 利用 component-scan 掃描 -->
 	<context:component-scan base-package="session01.bean" />
-	<context:component-scan base-package="session02.bean" />
 	
 </beans>
 
