@@ -4,9 +4,11 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class Lotto {
 	private Set<Integer> numbers;
 	
