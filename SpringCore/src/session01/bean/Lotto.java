@@ -4,6 +4,9 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Lotto {
 	private Set<Integer> numbers;
 	
