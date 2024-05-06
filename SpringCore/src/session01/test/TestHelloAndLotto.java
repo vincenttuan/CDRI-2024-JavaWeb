@@ -2,6 +2,7 @@ package session01.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import session01.bean.Hello;
 import session01.bean.Lotto;
@@ -15,14 +16,14 @@ public class TestHelloAndLotto {
 	public static void main(String[] args) {
 		
 		//ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig2.class);
+		//ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig2.class);
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-config2.xml");
 		Hello hello = ctx.getBean("hello", Hello.class);
 		System.out.println(hello.getToday());
 		Lotto lotto1 = ctx.getBean("lotto", Lotto.class);
 		Lotto lotto2 = ctx.getBean("lotto", Lotto.class);
 		System.out.println(lotto1.getNumbers());
 		System.out.println(lotto2.getNumbers());
-		
 		
 	}
 }
