@@ -19,5 +19,7 @@
 	
 	<!-- 定義一個 Hello 實體 -->
 	<bean id="hello" class="session01.bean.Hello" />
+	<bean id="hello2" class="session01.bean.Hello" />
+	<bean id="hello3" class="session01.bean.Hello" />
 
 </beans>	
