@@ -12,6 +12,9 @@ public class TestLotto {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-config.xml");
 		Lotto lotto = ctx.getBean("lotto", Lotto.class);
 		System.out.println(lotto.getNumbers());
+		Lotto lotto2 = ctx.getBean("lotto", Lotto.class);
+		System.out.println(lotto2.getNumbers());
+		
 	}
 
 }
