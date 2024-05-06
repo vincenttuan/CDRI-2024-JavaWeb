@@ -1,4 +1,4 @@
-package session02;
+package session02.bean;
 
 public class Tea implements Beverage {
 
