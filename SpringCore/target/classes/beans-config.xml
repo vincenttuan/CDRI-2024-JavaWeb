@@ -19,6 +19,5 @@
 	
 	<!-- 定義一個 Hello 實體 -->
 	<bean id="hello" class="session01.bean.Hello" />
-	
-		
+
 </beans>	
