@@ -18,7 +18,8 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd"> 
 	
 	<!-- 建立 Coffee 與 Tea 的實體 -->
-	<bean id="coffee" class=""></bean>
+	<bean id="coffee" class="session02.bean.Coffee" />
+	<bean id="tea" class="session02.bean.Tea" />
 	
 </beans>
 
