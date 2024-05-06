@@ -21,6 +21,18 @@
 	<bean id="coffee" class="session02.bean.Coffee" />
 	<bean id="tea" class="session02.bean.Tea" />
 	
+	<!-- 建立 BerevageMachine 的實體並注入指定飲品 -->
+	<bean id="coffeeBeverageMachine" class="session02.bean.BeverageMachine">
+		<!-- 建構子注入 -->
+		<constructor-arg ref="coffee" />
+	</bean>
+	
+	<bean id="teaBeverageMachine" class="session02.bean.BeverageMachine">
+		<!-- 方法注入 -->
+		<property name="beverage" ref="tea" />
+	</bean>
+	
+	
 </beans>
 
 
