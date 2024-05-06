@@ -3,6 +3,8 @@ package session01.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import session01.bean.Hello;
+import session01.bean.Lotto;
 import session01.config.SpringJavaConfig;
 
 //執行時請加入 VM 參數: --add-opens java.base/java.lang=ALL-UNNAMED
@@ -12,6 +14,12 @@ public class TestHelloAndLotto {
 	public static void main(String[] args) {
 		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		Hello hello = ctx.getBean("hello", Hello.class);
+		System.out.println(hello.getToday());
+		Lotto lotto1 = ctx.getBean("lotto", Lotto.class);
+		Lotto lotto2 = ctx.getBean("lotto", Lotto.class);
+		System.out.println(lotto1.getNumbers());
+		System.out.println(lotto2.getNumbers());
 		
 		
 	}

@@ -12,7 +12,7 @@ import session01.bean.Lotto;
 public class SpringJavaConfig {
 	
 	@Bean(name = "hello") // name 相當於 id
-	@Scope("sigleton") // 預設, 可以不寫
+	@Scope("singleton") // 預設, 可以不寫
 	public Hello getHello() {
 		Hello hello = new Hello();
 		return hello;
