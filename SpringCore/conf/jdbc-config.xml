@@ -41,7 +41,19 @@
 		<property name="idleConnectionTestPeriod" value="60" />
 	</bean>
 	
+	<!-- 配置 JdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	
+	<!-- 配置事務管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" ></property>
+    </bean>
+    
+    <!-- 開啟註解驅動，對事務相關的註解進行掃描與解析 -->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    
 </beans>
 
 
