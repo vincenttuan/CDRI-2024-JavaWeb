@@ -20,6 +20,15 @@
 	<!-- 利用 component-scan 掃描 -->
 	<context:component-scan base-package="session05" />
 	
+	<!-- 利用 property-placeholder 來引用指定檔案 -->
+	<context:property-placeholder location="db.properties" />
+	
+	<!-- 利用 c3p0 作為資料庫連接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		
+	</bean>
+	
+	
 </beans>
 
 
