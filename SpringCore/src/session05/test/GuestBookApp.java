@@ -59,7 +59,7 @@ public class GuestBookApp {
 	public void addContent() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("請輸入留言內容: ");
-		String content = scanner.next();
+		String content = scanner.nextLine();
 		guestBookService.add(username, content);
 	}
 	
@@ -68,7 +68,7 @@ public class GuestBookApp {
 		System.out.print("請輸入要修改的留言 id: ");
 		int id = scanner.nextInt();
 		System.out.print("請輸入要修改的留言內容: ");
-		String content = scanner.next();
+		String content = scanner.nextLine();
 		guestBookService.updateContent(id, content);
 	}
 	
