@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import session05.bean.GuestBook;
@@ -82,6 +84,19 @@ public class GuestBookApp {
 			System.out.printf("%d %s %s %s %s %n", 
 					gb.getId(), gb.getUsername(), gb.getContent(), gb.getCreateDate(), gb.getUpdateDate());
 		});
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("guestbook-config.xml");
+		GuestBookApp app = ctx.getBean(GuestBookApp.class);
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("請輸入暱稱: ");
+		String username = scanner.next();
+		app.setUsername(username);
+		
+		while (true) {
+			app.menu();
+		}
 	}
 	
 }
