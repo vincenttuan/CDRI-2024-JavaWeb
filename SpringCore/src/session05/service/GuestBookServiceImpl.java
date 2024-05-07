@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import session05.bean.GuestBook;
 import session05.dao.GuestBookDao;
 
-@Service
+@Service("gbService")
 public class GuestBookServiceImpl implements GuestBookService {
 	
 	@Autowired
