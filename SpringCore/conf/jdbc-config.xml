@@ -25,7 +25,20 @@
 	
 	<!-- 利用 c3p0 作為資料庫連接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		
+		<!-- 主要配置 -->
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="10" />
+		<!-- 其他配置 -->
+		<property name="maxIdleTime" value="30" />
+		<property name="maxPoolSize" value="100" />
+		<property name="minPoolSize" value="10" />
+		<!-- 當連接池中的連接耗盡的時候c3p0一次同時獲取的連接數。 Default: 3 -->
+		<property name="acquireIncrement" value="3" />
+		<!-- 每60秒檢查所有連接池中的空閒連接。 Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
 	</bean>
 	
 	
