@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import session05.bean.GuestBook;
 
-@Repository
+@Repository("gbDao")
 public class GuestBookDaoImpl implements GuestBookDao {
 	
 	@Autowired
