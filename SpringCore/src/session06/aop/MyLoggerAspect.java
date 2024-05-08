@@ -17,10 +17,21 @@ public class MyLoggerAspect {
 	@Pointcut(value = "execution(* session06.aop.ComputerImpl.*(..))")
 	public void pt1() {}
 	
+	@Pointcut(value = "execution(* session06.aop.ComputerImpl.add(..))")
+	public void pt2() {}
+	
+	@Pointcut(value = "execution(* session06.aop.*.*(..))")
+	public void pt3() {}
+	
+	@Pointcut(value = "execution(* *(..))")
+	public void pt4() {}
+	
 	//@Before(value = "execution(public Integer session06.aop.ComputerImpl.add(Integer, Integer))")
 	//@Before(value = "execution(* session06.aop.ComputerImpl.add(..))")
 	//@Before(value = "execution(* session06.aop.ComputerImpl.*(..))")
-	@Before(value = "pt1()")
+	//@Before(value = "pt1()")
+	//@Before(value = "pt2()")
+	@Before(value = "pt1() && !pt2()") // &&, ||, !
 	public void beforeAdvice(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName(); // 取得方法名稱
 		Object[] args = joinPoint.getArgs();
