@@ -26,7 +26,11 @@ public class DynProxy {
 		
 		// 3. 處理代理的實現
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
-			return null;
+			Object result = null; // 被代理物件的業務方法的回傳值 
+			
+			result = method.invoke(object, args); // 調用業務方法
+			
+			return result;
 		};
 		
 		// 4. 得到代理物件
