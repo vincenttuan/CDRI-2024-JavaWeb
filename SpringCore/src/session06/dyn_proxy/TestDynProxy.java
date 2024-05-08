@@ -1,7 +1,5 @@
 package session06.dyn_proxy;
 
-import java.net.Proxy;
-
 import session06.proxy.Man;
 import session06.proxy.Person;
 import session06.proxy.Woman;
