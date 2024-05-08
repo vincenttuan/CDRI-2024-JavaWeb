@@ -34,9 +34,6 @@ public class DynProxy {
 			// 調用業務方法
 			result = method.invoke(object, args); 
 			
-			// end
-			System.out.println("關閉 log 程序 ...");
-			
 			return result;
 		};
 		
