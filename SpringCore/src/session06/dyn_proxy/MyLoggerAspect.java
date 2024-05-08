@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class MyLoggerAspect {
 	
+	// before: 前置通知
 	public static void before(Object[] args) {
 		System.out.println("寫入 log 程序 ...");
 		String path = "src/session06/dyn_proxy/log.txt";
@@ -21,5 +22,10 @@ public class MyLoggerAspect {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// end: 後置通知
+	public static void end() {
+		System.out.println("完成 log 程序 ...");
 	}
 }

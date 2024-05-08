@@ -39,6 +39,9 @@ public class DynProxy {
 			// 調用業務方法
 			result = method.invoke(object, args); 
 			
+			// end -------------------------------------------
+			MyLoggerAspect.end();
+			
 			return result;
 		};
 		
