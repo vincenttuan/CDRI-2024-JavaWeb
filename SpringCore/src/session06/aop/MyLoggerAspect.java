@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -42,6 +43,11 @@ public class MyLoggerAspect {
 	@After(value = "pt2()")
 	public void afterAdvice(JoinPoint joinPoint) {
 		System.out.printf("後置通知: %s %n", joinPoint.getSignature().getName());
+	}
+	
+	@AfterReturning(value = "pt2()", returning = "result")
+	public void afterReturningAdvice(Object result) {
+		System.out.printf("返回通知: %s%n", result);
 	}
 	
 }
