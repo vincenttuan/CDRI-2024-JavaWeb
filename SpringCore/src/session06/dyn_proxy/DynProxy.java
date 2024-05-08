@@ -28,7 +28,14 @@ public class DynProxy {
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			Object result = null; // 被代理物件的業務方法的回傳值 
 			
-			result = method.invoke(object, args); // 調用業務方法
+			// before
+			System.out.println("寫入 log 程序 ...");
+			
+			// 調用業務方法
+			result = method.invoke(object, args); 
+			
+			// end
+			System.out.println("關閉 log 程序 ...");
 			
 			return result;
 		};
