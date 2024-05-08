@@ -32,6 +32,8 @@ public class MyLoggerRoundAspect {
 		} catch (Throwable e) {
 			// 4. 例外通知
 			System.out.printf("環繞通知-例外通知: %s e=%s%n", joinPoint.getSignature().getName(), e);
+			// 變更 result
+			result = Integer.valueOf(0);
 			
 		} finally {
 			// 5. 後置通知
