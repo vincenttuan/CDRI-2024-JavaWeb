@@ -5,11 +5,14 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import lombok.val;
 
 @Component // 可被 Spring 直接管理的物件
 @Aspect // 告訴 Spring 此為切面程式
@@ -53,6 +56,10 @@ public class MyLoggerAspect {
 		System.out.printf("返回通知: %s%n", result);
 	}
 	
+	@AfterThrowing(value = "pt2()", throwing = "ex")
+	public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
+		System.out.printf("異常通知: %s 發生 %s%n", joinPoint.getSignature().getName(), ex);
+	}
 	
 	
 }
