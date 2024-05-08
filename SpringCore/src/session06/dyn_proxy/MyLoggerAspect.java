@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 
+// Aspect 切面程式
+// 切面程式裡面放就是公用邏輯
 public class MyLoggerAspect {
 	
 	// before: 前置通知
