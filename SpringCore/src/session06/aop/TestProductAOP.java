@@ -8,7 +8,12 @@ public class TestProductAOP {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop-config.xml");
+		Product product = ctx.getBean("product", Product.class);
+		product.setName("iPhone20");
+		product.setPrice(800.0);
 		
+		System.out.println(product.getName());
+		System.out.println(product.getPrice());
 		
 	}
 
