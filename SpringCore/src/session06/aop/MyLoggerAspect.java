@@ -28,6 +28,7 @@ public class MyLoggerAspect {
 	@Pointcut(value = "execution(* *(..))")
 	public void pt4() {}
 	
+	//前置通知 value = Pointcut(語法: Spring EL)
 	//@Before(value = "execution(public Integer session06.aop.ComputerImpl.add(Integer, Integer))")
 	//@Before(value = "execution(* session06.aop.ComputerImpl.add(..))")
 	//@Before(value = "execution(* session06.aop.ComputerImpl.*(..))")
@@ -40,14 +41,18 @@ public class MyLoggerAspect {
 		System.out.printf("前置通知: 寫入 Log %s %s%n", methodName, Arrays.toString(args));
 	}
 	
+	// 後置通知(不論是否發生異常都會執行)
 	@After(value = "pt2()")
 	public void afterAdvice(JoinPoint joinPoint) {
 		System.out.printf("後置通知: %s %n", joinPoint.getSignature().getName());
 	}
 	
+	// 返回通知(可以設定 returing 的方法回傳值, 但是若有例外發生則不會通知)
 	@AfterReturning(value = "pt2()", returning = "result")
 	public void afterReturningAdvice(Object result) {
 		System.out.printf("返回通知: %s%n", result);
 	}
+	
+	
 	
 }
