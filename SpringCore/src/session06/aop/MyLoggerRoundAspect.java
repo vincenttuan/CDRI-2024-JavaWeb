@@ -21,17 +21,21 @@ public class MyLoggerRoundAspect {
 		
 		try {
 			// 1. 前置通知
+			System.out.printf("環繞通知-前置通知: %s%n", joinPoint.getSignature().getName());
 			
 			// 2. 代理執行業務方法
+			result = joinPoint.proceed();
 			
 			// 3. 返回通知
+			System.out.printf("環繞通知-返回通知: %s result=%s%n", joinPoint.getSignature().getName(), result);
 			
 		} catch (Throwable e) {
 			// 4. 例外通知
+			System.out.printf("環繞通知-例外通知: %s e=%s%n", joinPoint.getSignature().getName(), e);
 			
 		} finally {
 			// 5. 後置通知
-			
+			System.out.printf("環繞通知-後置通知: %s%n", joinPoint.getSignature().getName());
 		}
 		
 		return result;
