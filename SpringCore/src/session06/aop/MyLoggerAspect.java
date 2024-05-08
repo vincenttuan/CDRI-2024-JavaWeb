@@ -3,6 +3,7 @@ package session06.aop;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -17,7 +18,7 @@ public class MyLoggerAspect {
 	@Pointcut(value = "execution(* session06.aop.ComputerImpl.*(..))")
 	public void pt1() {}
 	
-	@Pointcut(value = "execution(* session06.aop.ComputerImpl.add(..))")
+	@Pointcut(value = "execution(* session06.aop.ComputerImpl.div(..))")
 	public void pt2() {}
 	
 	@Pointcut(value = "execution(* session06.aop.*.*(..))")
@@ -36,6 +37,11 @@ public class MyLoggerAspect {
 		String methodName = joinPoint.getSignature().getName(); // 取得方法名稱
 		Object[] args = joinPoint.getArgs();
 		System.out.printf("前置通知: 寫入 Log %s %s%n", methodName, Arrays.toString(args));
+	}
+	
+	@After(value = "pt2()")
+	public void afterAdvice(JoinPoint joinPoint) {
+		System.out.printf("後置通知: %s %n", joinPoint.getSignature().getName());
 	}
 	
 }
