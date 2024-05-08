@@ -47,7 +47,7 @@ public class MyLoggerAspect {
 		System.out.printf("後置通知: %s %n", joinPoint.getSignature().getName());
 	}
 	
-	// 返回通知(可以設定 returing 的方法回傳值, 但是若有例外發生則不會通知)
+	// 返回通知(可以設定 returning 的方法回傳值, 但是若有例外發生則不會通知)
 	@AfterReturning(value = "pt2()", returning = "result")
 	public void afterReturningAdvice(Object result) {
 		System.out.printf("返回通知: %s%n", result);
