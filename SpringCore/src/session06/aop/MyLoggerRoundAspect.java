@@ -19,6 +19,21 @@ public class MyLoggerRoundAspect {
 	public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
 		Object result = null;
 		
+		try {
+			// 1. 前置通知
+			
+			// 2. 代理執行業務方法
+			
+			// 3. 返回通知
+			
+		} catch (Throwable e) {
+			// 4. 例外通知
+			
+		} finally {
+			// 5. 後置通知
+			
+		}
+		
 		return result;
 	}
 	
