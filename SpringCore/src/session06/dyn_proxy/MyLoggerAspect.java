@@ -10,7 +10,7 @@ import java.util.Arrays;
 // 切面程式裡面放就是公用邏輯
 public class MyLoggerAspect {
 	
-	// before: 前置通知
+	// before: 前置通知 (Advice)
 	public static void before(Object[] args) {
 		System.out.println("寫入 log 程序 ...");
 		String path = "src/session06/dyn_proxy/log.txt";
@@ -26,7 +26,7 @@ public class MyLoggerAspect {
 		}
 	}
 	
-	// end: 後置通知
+	// end: 後置通知 (Advice)
 	public static void end() {
 		System.out.println("完成 log 程序 ...");
 	}
