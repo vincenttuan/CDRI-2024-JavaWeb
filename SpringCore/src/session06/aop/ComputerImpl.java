@@ -1,5 +1,8 @@
 package session06.aop;
 
+import org.springframework.stereotype.Component;
+
+@Component("computerImpl")
 public class ComputerImpl implements Computer {
 
 	@Override
