@@ -35,4 +35,4 @@ OTC大盤即時
 -http://www.twse.com.tw/exchangeReport/BWIBBU?&date=20171121&stockNo=2330
 
 搜尋股票
--http://mis.twse.com.tw/stock/api/getStockNames.jsp?n={代碼}
+-http://mis.twse.com.tw/stock/api/getStockNames.jsp?n=2330
