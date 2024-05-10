@@ -38,14 +38,14 @@ public class UserDaoImpl implements UserDao {
 		// keyHolder, new String[] {"id"} 將主鍵欄位 id 所自動生成的序號放到 keyHolder 中
 		namedParameterJdbcTemplate.update(sql, params, keyHolder, new String[] {"id"});
 		
-		int id = keyHolder.getKey().intValue(); // 最新新增紀錄的 user id
+		int userId = keyHolder.getKey().intValue(); // 最新新增紀錄的 user id
 		
 		// 新增該 user 的興趣紀錄
 		for(Integer interestId : user.getInterestIds()) {
-			baseDataDao.addInterest(interestId, interestId);
+			baseDataDao.addInterest(userId, interestId);
 		}
 		
-		return id;
+		return userId;
 	}
 
 	@Override
