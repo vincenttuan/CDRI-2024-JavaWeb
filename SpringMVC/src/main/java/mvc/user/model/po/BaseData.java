@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseData {
-	private Integer itemId;
-	private String itemName;
+	private Integer id; // 指的是 item_id
+	private String name; // 指的是 item_name
 }
