@@ -3,6 +3,7 @@ package mvc.user.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,38 +22,32 @@ public class BaseDataDaoImpl implements BaseDataDao {
 	
 	@Override
 	public List<Education> findAllEducations() {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query(queryAllSQL, new BeanPropertyRowMapper<>(Education.class), "Education");
 	}
 	
 	@Override
 	public Education getEducationById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject(getOneSQL, new BeanPropertyRowMapper<>(Education.class), "Education", id);
 	}
 	
 	@Override
 	public List<Gender> findAllGenders() {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query(queryAllSQL, new BeanPropertyRowMapper<>(Gender.class), "Gender");
 	}
 	
 	@Override
 	public Gender getGenderById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject(getOneSQL, new BeanPropertyRowMapper<>(Gender.class), "Gender", id);
 	}
 	
 	@Override
 	public List<Interest> findAllInterests() {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query(queryAllSQL, new BeanPropertyRowMapper<>(Interest.class), "Interest");
 	}
 	
 	@Override
 	public Interest getInterestById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject(getOneSQL, new BeanPropertyRowMapper<>(Interest.class), "Interest", id);
 	}
 	
 	
