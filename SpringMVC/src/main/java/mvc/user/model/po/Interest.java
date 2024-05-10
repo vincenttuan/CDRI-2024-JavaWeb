@@ -1,6 +1,5 @@
 package mvc.user.model.po;
 
-public class Interest {
-	private Integer itemId;
-	private String itemName;
+public class Interest extends BaseData {
+	public static final String groupName = "Interest";
 }
