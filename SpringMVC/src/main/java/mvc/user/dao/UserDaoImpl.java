@@ -30,6 +30,7 @@ public class UserDaoImpl implements UserDao {
 	public int addUser(User user) {
 		//String sql = "insert into user(name, age, birth, resume, education_id, gender_id) values(?, ?, ?, ?, ?, ?)";
 		//return jdbcTemplate.update(sql, user.getName(), user.getAge(), user.getBirth(), user.getResume(), user.getEducationId(), user.getGenderId());
+		
 		String sql = "insert into user(name, age, birth, resume, education_id, gender_id) values(:name, :age, :birth, :resume, :educationId, :genderId)";
 		// 自動將 user 物件的屬性值給 sql 參數(?)使用
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
