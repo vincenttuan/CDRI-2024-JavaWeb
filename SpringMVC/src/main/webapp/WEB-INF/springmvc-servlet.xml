@@ -33,7 +33,7 @@
 		<!-- basic -->
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei&amp;characterEncoding=utf-8&amp;useUnicode=true" />
-		<property name="user" value="web" />
+		<property name="user" value="root" />
 		<property name="password" value="12345678" />
 		<!-- options -->
 		<property name="minPoolSize" value="10" />
