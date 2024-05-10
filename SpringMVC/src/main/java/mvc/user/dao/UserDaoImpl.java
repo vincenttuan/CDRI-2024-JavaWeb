@@ -21,6 +21,9 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
+	@Autowired
+	private BaseDataDao baseDataDao;
+	
 	@Override
 	public int addUser(User user) {
 		String sql = "insert into user(name, age, birth, resume, education_id, gender_id) values(?, ?, ?, ?, ?, ?)";
@@ -36,6 +39,12 @@ public class UserDaoImpl implements UserDao {
 		namedParameterJdbcTemplate.update(sql, params, keyHolder, new String[] {"id"});
 		
 		int id = keyHolder.getKey().intValue(); // 最新新增紀錄的 user id
+		
+		// 新增該 user 的興趣紀錄
+		for(Integer interestId : user.getInterestIds()) {
+			baseDataDao.addInterest(interestId, interestId);
+		}
+		
 		return id;
 	}
 

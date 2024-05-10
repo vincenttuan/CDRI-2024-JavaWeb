@@ -49,6 +49,12 @@ public class BaseDataDaoImpl implements BaseDataDao {
 	public Interest getInterestById(Integer id) {
 		return jdbcTemplate.queryForObject(getOneSQL, new BeanPropertyRowMapper<>(Interest.class), "Interest", id);
 	}
+
+	@Override
+	public int addInterest(Integer userId, Integer interestId) {
+		String sql = "insert into user_interest(user_id, interest_id) values(?, ?)";
+		return jdbcTemplate.update(sql, userId, interestId);
+	}
 	
 	
 	

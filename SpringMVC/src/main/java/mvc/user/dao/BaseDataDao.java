@@ -15,4 +15,5 @@ public interface BaseDataDao {
 	
 	List<Interest> findAllInterests();
 	Interest getInterestById(Integer id);
+	int addInterest(Integer userId, Integer interestId);
 }
