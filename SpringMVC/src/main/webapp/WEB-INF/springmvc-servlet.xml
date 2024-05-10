@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/data/jpa https://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="mvc" />
+	
+	<!-- 設定 Spring AOP 切面程式自動實現代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<!-- 配置 view 渲染器位置 -->
+	<bean id="internalResourceViewResolver"
+		  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- c3p0 pool -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- basic -->
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei&amp;characterEncoding=utf-8&amp;useUnicode=true" />
+		<property name="user" value="root" />
+		<property name="password" value="12345678" />
+		<!-- options -->
+		<property name="minPoolSize" value="10" />
+		<property name="maxPoolSize" value="100" />
+		<property name="initialPoolSize" value="10" />
+		<property name="maxIdleTime" value="1800" />
+		<property name="maxStatements" value="100" /> <!-- 0 表示 no cahce any statement -->
+	</bean>
+	
+	<!-- jdbc template -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- named parameter jdbc template -->
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+    	<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<!-- 配置事務管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" ></property>
+    </bean>
+    
+    <!-- 開啟註解驅動，對事務相關的註解進行掃描與解析 -->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+	
+	<!-- 錯誤訊息設定 properites -->
+	<bean id="messageSource"
+			class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	    <property name="basename" value="/WEB-INF/resources/errorMessage" />
+	    <property name="useCodeAsDefaultMessage" value="false"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	
+	<!-- JSR 303 Validator 驗證: Hibernate Validator 實作驗證配置-->
+    <bean id="validator"
+    		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    	<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+    	<property name="validationMessageSource" ref="messageSource" />
+    </bean>
+	
+	<!--  解決中文 與 JSR 303 Validator 設定 -->
+	<mvc:annotation-driven validator="validator">
+		<mvc:message-converters
+			register-defaults="true">
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+</beans>		
