@@ -1,6 +1,7 @@
 package mvc.user.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -78,7 +79,18 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserById(Integer userId) {
 		String sql = "select id, name, age, birth, resume, education_id, gender_id from user where id=?";
-		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), userId);
+		User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), userId);
+		// 查詢興趣並注入
+		String interest_sql = "select interest_id from user_interest where user_id=?";
+		List<Map<String, Object>> interestList = jdbcTemplate.queryForList(interest_sql, userId);
+		System.out.println(interestList);
+		// 將 [{interest_id=1}, {interest_id=2}, {interest_id=3}, {interest_id=6}]
+		// 轉 [1, 2, 3, 6]
+		Integer[] interestIds = interestList.stream() // [{interest_id=1}, {interest_id=2}, {interest_id=3}, {interest_id=6}]
+							.map(data -> (Integer)data.get("interest_id")) // 1, 2, 3, 6
+							.toArray(Integer[]::new); // [1, 2, 3, 6]
+		user.setInterestIds(interestIds);
+		return user;
 	}
 
 	@Override
