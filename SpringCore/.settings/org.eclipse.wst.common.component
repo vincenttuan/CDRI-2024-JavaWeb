@@ -3,6 +3,5 @@
         <wb-resource deploy-path="/" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/conf"/>
         <wb-resource deploy-path="/" source-path="/target/generated-sources/annotations"/>
-        <wb-resource deploy-path="/" source-path="/target/generated-test-sources/test-annotations"/>
     </wb-module>
 </project-modules>
