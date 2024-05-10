@@ -16,14 +16,17 @@ import mvc.user.model.po.User;
 import mvc.user.service.UserService;
 
 /**
- * 定義 URL 服務
+ * 定義 URI 服務
  * ------------------------------------------------------------------
- * GET    /user   取得所有使用者資料
- * GET    /user/1 根據 userId 取得單筆使用者資料
- * POST   /user   新增使用者資料, 會自動夾帶 User 物件資料上來
- * PUT    /user/1 修改指定 userId 的使用者資料, 會自動夾帶要修改的 User 物件資料上來
- * DELETE /user/1 刪除指定 userId 的使用者紀錄
+ * Method | URI     | Description
  * ------------------------------------------------------------------
+ * GET    | /user   | 取得所有使用者資料
+ * GET    | /user/1 | 根據 userId 取得單筆使用者資料
+ * POST   | /user   | 新增使用者資料, 會自動夾帶 User 物件資料上來
+ * PUT    | /user/1 | 修改指定 userId 的使用者資料, 會自動夾帶要修改的 User 物件資料上來
+ * DELETE | /user/1 | 刪除指定 userId 的使用者紀錄
+ * ------------------------------------------------------------------
+ * URL 範例: GET http://localhost:8080/SpringMVC/mvc/user
  */
 
 @Controller
