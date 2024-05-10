@@ -106,7 +106,6 @@ public class UserDaoImpl implements UserDao {
 	private Integer[] queryInterestsByUserId(Integer userId) {
 		String interest_sql = "select interest_id from user_interest where user_id=?";
 		List<Map<String, Object>> interestList = jdbcTemplate.queryForList(interest_sql, userId);
-		System.out.println(interestList);
 		// 將 [{interest_id=1}, {interest_id=2}, {interest_id=3}, {interest_id=6}]
 		// 轉 [1, 2, 3, 6]
 		Integer[] interestIds = interestList.stream() // [{interest_id=1}, {interest_id=2}, {interest_id=3}, {interest_id=6}]
