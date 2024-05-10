@@ -80,7 +80,30 @@ public class UserDaoImpl implements UserDao {
 	public User getUserById(Integer userId) {
 		String sql = "select id, name, age, birth, resume, education_id, gender_id from user where id=?";
 		User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), userId);
-		// 查詢興趣並注入
+		// 查詢興趣 -------------------------------------------------------------------------------------
+		Integer[] interestIds = queryInterestsByUserId(userId);
+		//------------------------------------------------------------------------------------------------
+		// 注入興趣
+		user.setInterestIds(interestIds);
+		return user;
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		String sql = "select id, name, age, birth, resume, education_id, gender_id from user";
+		List<User> users = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+		users.forEach(user -> {
+			// 查詢興趣 -------------------------------------------------------------------------------------
+			Integer[] interestIds = queryInterestsByUserId(user.getId());
+			//------------------------------------------------------------------------------------------------
+			// 注入興趣
+			user.setInterestIds(interestIds);
+		});
+		return users;
+	}
+	
+	// 根據使用者的 userId 來查找到興趣
+	private Integer[] queryInterestsByUserId(Integer userId) {
 		String interest_sql = "select interest_id from user_interest where user_id=?";
 		List<Map<String, Object>> interestList = jdbcTemplate.queryForList(interest_sql, userId);
 		System.out.println(interestList);
@@ -89,14 +112,7 @@ public class UserDaoImpl implements UserDao {
 		Integer[] interestIds = interestList.stream() // [{interest_id=1}, {interest_id=2}, {interest_id=3}, {interest_id=6}]
 							.map(data -> (Integer)data.get("interest_id")) // 1, 2, 3, 6
 							.toArray(Integer[]::new); // [1, 2, 3, 6]
-		user.setInterestIds(interestIds);
-		return user;
-	}
-
-	@Override
-	public List<User> findAllUsers() {
-		String sql = "select id, name, age, birth, resume, education_id, gender_id from user";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+		return interestIds;
 	}
 
 }
