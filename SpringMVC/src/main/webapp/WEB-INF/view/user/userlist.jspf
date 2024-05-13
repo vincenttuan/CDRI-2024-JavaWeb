@@ -6,4 +6,43 @@
 <!-- Spring Form 表單標籤 -->
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
 
-${ users }    
+<div class="pure-form">
+	<fieldset>
+		<legend>
+			User List
+		</legend>
+		
+		<!-- User table -->
+		<table class="pure-table pure-table-bordered">
+			<thead>
+				<tr>
+					<th>序號</th><th>姓名</th><th>性別</th><th>年齡</th><th>生日</th>
+					<th>教育程度</th><th>興趣</th><th>履歷</th><th>修改</th><th>刪除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${ users }" var="user">
+					<tr>
+						<td>${ user.id }</td>
+						<td>${ user.name }</td>
+						<td>${ user.genderId }</td>
+						<td>${ user.age }</td>
+						<td>${ user.birth }</td>
+						<td>${ user.educationId }</td>
+						<td>${ user.interestIds }</td>
+						<td>${ user.resume }</td>
+						<td>
+							<a href="#" class="pure-button">修改</a>
+						</td>
+						<td>
+							<a href="#" class="pure-button">刪除</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
+				
+	</fieldset>
+</div>
+  
