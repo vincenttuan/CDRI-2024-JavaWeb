@@ -131,7 +131,7 @@ public class UserDaoImpl implements UserDao {
 					+ "FROM user a, base_data b "
 					+ "where a.education_id = b.item_id and b.group_name = 'Education' "
 					+ "group by a.education_id, b.item_name";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Statistics.class));;
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Statistics.class));
 	}
 
 }
