@@ -9,6 +9,30 @@
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
+	  drawEducationChart();
+	  drawGenderChart();
+  }
+  
+  function drawEducationChart() {
+	var data = google.visualization.arrayToDataTable([
+	      ['Item', 'Count'],
+	      
+      <c:forEach items="${ educationStatistics }" var="stat">
+      	['${stat.name}', ${stat.count}],
+      </c:forEach>
+      	
+    ]);
+
+    var options = {
+      title: 'Education Statistics'
+    };
+	// PieChart, BarChart, ColumnChart, LineChart
+    var chart = new google.visualization.ColumnChart(document.getElementById('educationchart'));
+
+    chart.draw(data, options);
+  }
+  
+  function drawGenderChart() {
 
     var data = google.visualization.arrayToDataTable([
       ['Item', 'Count'],
@@ -23,12 +47,19 @@
       title: 'Gender Statistics'
     };
 	// PieChart, BarChart, ColumnChart, LineChart
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    var chart = new google.visualization.PieChart(document.getElementById('genderchart'));
 
     chart.draw(data, options);
   }
 </script>
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<table>
+	<td valign="top">
+		<div id="genderchart" style="width: 700px; height: 500px;"></div>
+	</td>
+	<td valign="top">
+		<div id="educationchart" style="width: 700px; height: 500px;"></div>
+	</td>	
+</table>
 
 
 
