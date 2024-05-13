@@ -14,6 +14,8 @@
 		<title>User 首頁</title>
 	</head>
 	<body style="padding:15px">
+		<h1>User 資料維護</h1>
+		<hr />
 		<table>
 			<tr>
 				<!-- User 表單 -->
