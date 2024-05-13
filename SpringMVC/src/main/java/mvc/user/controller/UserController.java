@@ -52,17 +52,10 @@ public class UserController {
 	@GetMapping
 	// model: 欲將給 jsp 的資料要放在 model 容器中
 	public String queryAllUsers(@ModelAttribute User user, Model model) {
-		List<UserDto> userDtos = userService.findUserDtos();
-		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
-		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
-		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
-		// 將 userDtos 資料傳給 jsp
-		model.addAttribute("userDtos", userDtos);
-		model.addAttribute("educations", educations);
-		model.addAttribute("genders", genders);
-		model.addAttribute("interests", interests);
-		
-		user.setAge(18); // 預設年齡
+		// 基本要傳給 user.jsp 的資訊
+		addBasicModel(model);
+		// 預設年齡
+		user.setAge(18); 
 		// 完整 jsp(view) 路徑 = "/WEB-INF/view/user/user.jsp";
 		// 因為在 springmvc-servlet.xml
 		// 已經定義: prefix = "/WEB-INF/view/"
@@ -76,16 +69,8 @@ public class UserController {
 		User user = userService.getUser(userId);
 		// 將 userDtos 資料傳給 jsp
 		model.addAttribute("user", user);
-		
-		// 基本要傳給 jsp 的資訊
-		List<UserDto> userDtos = userService.findUserDtos();
-		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
-		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
-		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
-		model.addAttribute("userDtos", userDtos);
-		model.addAttribute("educations", educations);
-		model.addAttribute("genders", genders);
-		model.addAttribute("interests", interests);
+		// 基本要傳給 user.jsp 的資訊
+		addBasicModel(model);
 		return "user/user";
 	}
 	
@@ -109,6 +94,19 @@ public class UserController {
 	public String deleteUser(@PathVariable("userId") Integer userId) {
 		Boolean success = userService.deleteUser(userId);
 		return "delete: " + success;
+	}
+	
+	// 基本要傳給首頁 user.jsp 的資料
+	private void addBasicModel(Model model) {
+		// 基本要傳給 jsp 的資訊
+		List<UserDto> userDtos = userService.findUserDtos();
+		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
+		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
+		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
+		model.addAttribute("userDtos", userDtos);
+		model.addAttribute("educations", educations);
+		model.addAttribute("genders", genders);
+		model.addAttribute("interests", interests);
 	}
 	
 }
