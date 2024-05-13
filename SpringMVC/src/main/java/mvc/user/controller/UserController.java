@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,7 +25,7 @@ import mvc.user.service.UserService;
  * ------------------------------------------------------------------
  * Method | URI     | Description
  * ------------------------------------------------------------------
- * GET    | /user   | 取得所有使用者資料
+ * GET    | /user   | 取得所有使用者資料並重導到 /WEB-INF/view/user/user.jsp 頁面
  * GET    | /user/1 | 根據 userId 取得單筆使用者資料
  * POST   | /user   | 新增使用者資料, 會自動夾帶 User 物件資料上來
  * PUT    | /user/1 | 修改指定 userId 的使用者資料, 會自動夾帶要修改的 User 物件資料上來
@@ -40,10 +42,17 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping
-	@ResponseBody
-	public String queryAllUsers() {
+	// model: 欲將給 jsp 的資料要放在 model 容器中
+	public String queryAllUsers(Model model) {
 		List<User> users = userService.findUsers();
-		return users.toString();
+		// 將 users 資料傳給 jsp
+		model.addAttribute("users", users);
+		// 完整 jsp(view) 路徑 = "/WEB-INF/view/user/user.jsp";
+		// 因為在 springmvc-servlet.xml
+		// 已經定義: prefix = "/WEB-INF/view/"
+		//        suffix = ".jsp"
+		// 所以只要寫成 "user/user"
+		return "user/user";
 	}
 	
 	@GetMapping("/{userId}")
