@@ -32,7 +32,7 @@
 						<td>${ userDto.interestNames }</td>
 						<td>${ userDto.resume }</td>
 						<td>
-							<a href="#" class="pure-button">修改</a>
+							<a href="${pageContext.request.contextPath}/mvc/user/${ userDto.id }" class="pure-button">修改</a>
 						</td>
 						<td>
 							<a href="#" class="pure-button">刪除</a>
