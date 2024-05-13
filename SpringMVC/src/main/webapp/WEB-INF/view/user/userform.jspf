@@ -15,6 +15,9 @@ ${ user }
 		年齡: <sp:input path="age" type="number" /><p />
 		生日: <sp:input path="birth" type="date" /><p />
 		學歷: <sp:select path="educationId" items="${ educations }" itemValue="id" itemLabel="name" /><p />
+		性別: <sp:radiobuttons path="genderId" items="${ genders }" itemValue="id" itemLabel="name" /><p />
+		興趣: <sp:checkboxes path="interestId" items="${ interest }" itemValue="id" itemLabel="name" /><p />
+		履歷: <sp:textarea path="resume" /><p />
 	</fieldset>
 	
 </sp:form>
