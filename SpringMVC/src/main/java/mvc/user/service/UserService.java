@@ -51,6 +51,8 @@ public class UserService {
 				interests.add(interest);
 			}
 			userDto.setInterests(interests);
+			// 將 userDto 注入到 userDtos 列表
+			userDtos.add(userDto);
 		}
 		return userDtos;
 	}
