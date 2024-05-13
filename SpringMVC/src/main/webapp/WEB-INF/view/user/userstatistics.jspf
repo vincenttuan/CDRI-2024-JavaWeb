@@ -24,10 +24,11 @@
     ]);
 
     var options = {
-      title: 'Education Statistics'
+      title: 'Education Statistics',
+      is3D: true
     };
 	// PieChart, BarChart, ColumnChart, LineChart
-    var chart = new google.visualization.ColumnChart(document.getElementById('educationchart'));
+    var chart = new google.visualization.PieChart(document.getElementById('educationchart'));
 
     chart.draw(data, options);
   }
@@ -47,7 +48,7 @@
       title: 'Gender Statistics'
     };
 	// PieChart, BarChart, ColumnChart, LineChart
-    var chart = new google.visualization.PieChart(document.getElementById('genderchart'));
+    var chart = new google.visualization.BarChart(document.getElementById('genderchart'));
 
     chart.draw(data, options);
   }
