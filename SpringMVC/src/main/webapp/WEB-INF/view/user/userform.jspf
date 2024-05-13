@@ -20,7 +20,7 @@ ${ user }
 		性別: <sp:radiobuttons path="genderId" items="${ genders }" itemValue="id" itemLabel="name" /><p />
 		興趣: <sp:checkboxes path="interestIds" items="${ interests }" itemValue="id" itemLabel="name" /><p />
 		履歷: <sp:textarea path="resume" /><p />
-		<button type="submit" class="pure-button pure-button-primary">新增</button>
+		<button type="submit" class="pure-button pure-button-primary">${ _method eq 'PUT' ? '修改' : '新增' }</button>
 	</fieldset>
 	
 </sp:form>

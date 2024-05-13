@@ -32,7 +32,7 @@ import mvc.user.service.UserService;
  * ------------------------------------------------------------------
  * GET    | /user   | 取得所有使用者資料並重導到 /WEB-INF/view/user/user.jsp 頁面
  * GET    | /user/1 | 根據 userId 取得單筆使用者資料
- * POST   | /user   | 新增使用者資料, 會自動夾帶 User 物件資料上來
+ * POST   | /user/  | 新增使用者資料, 會自動夾帶 User 物件資料上來
  * PUT    | /user/1 | 修改指定 userId 的使用者資料, 會自動夾帶要修改的 User 物件資料上來
  * DELETE | /user/1 | 刪除指定 userId 的使用者紀錄
  * ------------------------------------------------------------------
