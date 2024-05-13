@@ -10,7 +10,7 @@
 	
 	<fieldset>
 		<legend>User Form</legend>
-		
+		${ user }
 	
 	</fieldset>
 	
