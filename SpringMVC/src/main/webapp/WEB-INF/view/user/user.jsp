@@ -30,7 +30,7 @@
 			<tr>
 				<!-- User 列表 -->
 				<td colspan="2">
-					${ users }
+					<%@ include file="userlist.jspf" %>
 				</td>
 			</tr>
 		</table>
