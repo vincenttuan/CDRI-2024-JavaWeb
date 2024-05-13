@@ -21,16 +21,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ users }" var="user">
+				<c:forEach items="${ userDtos }" var="userDto">
 					<tr>
-						<td>${ user.id }</td>
-						<td>${ user.name }</td>
-						<td>${ user.genderId }</td>
-						<td>${ user.age }</td>
-						<td><fmt:formatDate value="${ user.birth }" pattern="yyyy-MM-dd" /></td>
-						<td>${ user.educationId }</td>
-						<td>${ user.interestIds }</td>
-						<td>${ user.resume }</td>
+						<td>${ userDto.id }</td>
+						<td>${ userDto.name }</td>
+						<td>${ userDto.gender.name }</td>
+						<td>${ userDto.age }</td>
+						<td><fmt:formatDate value="${ userDto.birth }" pattern="yyyy-MM-dd" /></td>
+						<td>${ userDto.education.name }</td>
+						<td>${ userDto.interestNames }</td>
+						<td>${ userDto.resume }</td>
 						<td>
 							<a href="#" class="pure-button">修改</a>
 						</td>
