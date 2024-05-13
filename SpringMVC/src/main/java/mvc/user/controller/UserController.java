@@ -76,7 +76,7 @@ public class UserController {
 		return "user/user";
 	}
 	
-	@PostMapping
+	@PostMapping("/")
 	public String createUser(User user) {
 		System.out.println(user);
 		Boolean success = userService.addUser(user);
