@@ -7,7 +7,7 @@
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
 
 ${ user }
-<sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user" class="pure-form">
+<sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user/${ user.id }" class="pure-form">
 	<fieldset>
 		<legend>User Form</legend>
 		<!-- HttpMethod 隱藏欄位 -->
