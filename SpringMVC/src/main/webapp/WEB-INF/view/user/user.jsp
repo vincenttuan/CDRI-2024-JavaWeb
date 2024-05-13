@@ -20,7 +20,7 @@
 			<tr>
 				<!-- User 表單 -->
 				<td>
-					
+					<%@ include file="userform.jspf" %>
 				<td>
 				<!-- User 圖表 -->
 				<td>
