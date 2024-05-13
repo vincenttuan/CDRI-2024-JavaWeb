@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Statistics {
 	private Integer id;
-	private Integer name;
+	private String name;
 	private Integer count;
 	
 }
