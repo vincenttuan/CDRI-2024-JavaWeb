@@ -8,6 +8,10 @@
 
 <sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user" class="pure-form">
 	
+	<fieldset>
+		<legend>User Form</legend>
+		
 	
+	</fieldset>
 	
 </sp:form>
