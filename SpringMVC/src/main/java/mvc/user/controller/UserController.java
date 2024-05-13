@@ -84,11 +84,10 @@ public class UserController {
 	}
 	
 	@PutMapping("/{userId}")
-	@ResponseBody
 	public String updateUser(@PathVariable("userId") Integer userId, User user) {
 		System.out.println(user);
 		Boolean success = userService.updateUser(userId, user);
-		return "update: " + success;
+		return "redirect:/mvc/user";
 	}
 	
 	@DeleteMapping("/{userId}")
