@@ -5,3 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- Spring Form 表單標籤 -->
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+
+<sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user" class="pure-form">
+	
+	
+	
+</sp:form>
