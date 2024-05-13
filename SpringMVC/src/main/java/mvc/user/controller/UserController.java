@@ -73,9 +73,19 @@ public class UserController {
 	
 	@GetMapping("/{userId}")
 	@ResponseBody
-	public String getUser(@PathVariable("userId") Integer userId) {
+	public String getUser(@PathVariable("userId") Integer userId, Model model) {
 		User user = userService.getUser(userId);
-		return user.toString();
+		List<UserDto> userDtos = userService.findUserDtos();
+		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
+		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
+		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
+		// 將 userDtos 資料傳給 jsp
+		model.addAttribute("user", user);
+		model.addAttribute("userDtos", userDtos);
+		model.addAttribute("educations", educations);
+		model.addAttribute("genders", genders);
+		model.addAttribute("interests", interests);
+		return "user/user";
 	}
 	
 	@PostMapping
