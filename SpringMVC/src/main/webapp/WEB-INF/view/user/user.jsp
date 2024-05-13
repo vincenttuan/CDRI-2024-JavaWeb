@@ -16,7 +16,7 @@
 	<body style="padding:15px">
 		<h1>User 資料維護</h1>
 		<hr />
-		<table>
+		<table border=0>
 			<tr>
 				<!-- User 表單 -->
 				<td valign="top">
