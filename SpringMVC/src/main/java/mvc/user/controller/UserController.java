@@ -69,6 +69,8 @@ public class UserController {
 		User user = userService.getUser(userId);
 		// 將 userDtos 資料傳給 jsp
 		model.addAttribute("user", user);
+		// 將 _method="PUT" 傳給 jsp
+		model.addAttribute("_method", "PUT");
 		// 基本要傳給 user.jsp 的資訊
 		addBasicModel(model);
 		return "user/user";

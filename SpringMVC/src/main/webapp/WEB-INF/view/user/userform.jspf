@@ -10,6 +10,8 @@ ${ user }
 <sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user" class="pure-form">
 	<fieldset>
 		<legend>User Form</legend>
+		<!-- HttpMethod 隱藏欄位 -->
+		<input name="_method" type="hidden" value="${ _method }" />
 		<!-- 表單元素 -->
 		姓名: <sp:input path="name" /><p />
 		年齡: <sp:input path="age" type="number" /><p />
