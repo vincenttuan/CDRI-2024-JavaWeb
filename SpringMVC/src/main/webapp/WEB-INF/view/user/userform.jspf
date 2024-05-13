@@ -14,7 +14,7 @@ ${ user }
 		姓名: <sp:input path="name" /><p />
 		年齡: <sp:input path="age" type="number" /><p />
 		生日: <sp:input path="birth" type="date" /><p />
-		學歷: <sp:input path="educationId" /><p />
+		學歷: <sp:select path="educationId" items="${ educations }" itemValue="id" itemLabel="name" /><p />
 	</fieldset>
 	
 </sp:form>
