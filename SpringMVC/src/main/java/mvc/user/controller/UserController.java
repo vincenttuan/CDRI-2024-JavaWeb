@@ -72,7 +72,6 @@ public class UserController {
 	}
 	
 	@GetMapping("/{userId}")
-	@ResponseBody
 	public String getUser(@PathVariable("userId") Integer userId, Model model) {
 		User user = userService.getUser(userId);
 		List<UserDto> userDtos = userService.findUserDtos();
