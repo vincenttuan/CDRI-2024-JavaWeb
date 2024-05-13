@@ -21,11 +21,11 @@
 				<!-- User 表單 -->
 				<td valign="top">
 					<%@ include file="userform.jspf" %>
-				<td>
+				</td>
 				<!-- User 圖表 -->
 				<td valign="top">
 					<%@ include file="userstatistics.jspf" %>
-				<td>
+				</td>
 			</tr>
 			<tr>
 				<!-- User 列表 -->
