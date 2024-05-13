@@ -19,18 +19,18 @@
 		<table>
 			<tr>
 				<!-- User 表單 -->
-				<td>
+				<td valign="top">
 					<%@ include file="userform.jspf" %>
 				<td>
-				<!-- User 圖表 -->
-				<td>
-					
+				<!-- User 列表 -->
+				<td valign="top">
+					<%@ include file="userlist.jspf" %>
 				<td>
 			</tr>
 			<tr>
-				<!-- User 列表 -->
-				<td colspan="2">
-					<%@ include file="userlist.jspf" %>
+				<!-- User 圖表 -->
+				<td colspan="2" valign="top">
+					
 				</td>
 			</tr>
 		</table>
