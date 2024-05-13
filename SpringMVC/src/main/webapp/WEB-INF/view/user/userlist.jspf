@@ -35,7 +35,11 @@
 							<a href="${pageContext.request.contextPath}/mvc/user/${ userDto.id }" class="pure-button">修改</a>
 						</td>
 						<td>
-							<a href="#" class="pure-button">刪除</a>
+							<!-- 刪除 from 表單 -->
+							<form method="post" action="${pageContext.request.contextPath}/mvc/user/${ userDto.id }">
+								<input name="_method" type="hidden" value="DELETE">
+								<button type="submit" class="pure-button">刪除</button>
+							</form>
 						</td>
 					</tr>
 				</c:forEach>
