@@ -22,7 +22,7 @@
     var options = {
       title: 'Gender Statistics'
     };
-
+	// PieChart, BarChart, ColumnChart, LineChart
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
     chart.draw(data, options);
