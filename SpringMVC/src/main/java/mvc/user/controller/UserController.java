@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import mvc.user.dao.BaseDataDao;
 import mvc.user.model.dto.UserDto;
+import mvc.user.model.po.Education;
+import mvc.user.model.po.Gender;
+import mvc.user.model.po.Interest;
 import mvc.user.model.po.User;
 import mvc.user.service.UserService;
 
@@ -42,15 +46,23 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private BaseDataDao baseDataDao;
+	
 	@GetMapping
 	// model: 欲將給 jsp 的資料要放在 model 容器中
 	public String queryAllUsers(@ModelAttribute User user, Model model) {
 		List<UserDto> userDtos = userService.findUserDtos();
+		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
+		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
+		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
 		// 將 userDtos 資料傳給 jsp
 		model.addAttribute("userDtos", userDtos);
+		model.addAttribute("educations", educations);
+		model.addAttribute("genders", genders);
+		model.addAttribute("interests", interests);
 		
 		user.setAge(18); // 預設年齡
-		
 		// 完整 jsp(view) 路徑 = "/WEB-INF/view/user/user.jsp";
 		// 因為在 springmvc-servlet.xml
 		// 已經定義: prefix = "/WEB-INF/view/"

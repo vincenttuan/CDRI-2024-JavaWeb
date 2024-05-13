@@ -6,12 +6,15 @@
 <!-- Spring Form 表單標籤 -->
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
 
+${ user }
 <sp:form modelAttribute="user" method="post" action="${pageContext.request.contextPath}/mvc/user" class="pure-form">
-	
 	<fieldset>
 		<legend>User Form</legend>
-		${ user }
-	
+		<!-- 表單元素 -->
+		姓名: <sp:input path="name" /><p />
+		年齡: <sp:input path="age" type="number" /><p />
+		生日: <sp:input path="birth" type="date" /><p />
+		學歷: <sp:input path="educationId" /><p />
 	</fieldset>
 	
 </sp:form>
