@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import mvc.user.model.dto.UserDto;
 import mvc.user.model.po.User;
 import mvc.user.service.UserService;
 
@@ -44,9 +45,9 @@ public class UserController {
 	@GetMapping
 	// model: 欲將給 jsp 的資料要放在 model 容器中
 	public String queryAllUsers(Model model) {
-		List<User> users = userService.findUsers();
-		// 將 users 資料傳給 jsp
-		model.addAttribute("users", users);
+		List<UserDto> userDtos = userService.findUserDtos();
+		// 將 userDtos 資料傳給 jsp
+		model.addAttribute("userDtos", userDtos);
 		// 完整 jsp(view) 路徑 = "/WEB-INF/view/user/user.jsp";
 		// 因為在 springmvc-servlet.xml
 		// 已經定義: prefix = "/WEB-INF/view/"
