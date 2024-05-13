@@ -22,6 +22,7 @@ import mvc.user.model.dto.UserDto;
 import mvc.user.model.po.Education;
 import mvc.user.model.po.Gender;
 import mvc.user.model.po.Interest;
+import mvc.user.model.po.Statistics;
 import mvc.user.model.po.User;
 import mvc.user.service.UserService;
 
@@ -103,10 +104,16 @@ public class UserController {
 		List<Education> educations = baseDataDao.findAllEducations(); // 所有學歷
 		List<Gender> genders = baseDataDao.findAllGenders(); // 所有性別
 		List<Interest> interests = baseDataDao.findAllInterests(); // 所有興趣
+		List<Statistics> genderStatistics = userService.queryStatistics("Gender");
+		List<Statistics> educationStatistics = userService.queryStatistics("Education");
+		
 		model.addAttribute("userDtos", userDtos);
 		model.addAttribute("educations", educations);
 		model.addAttribute("genders", genders);
 		model.addAttribute("interests", interests);
+		model.addAttribute("genderStatistics", genderStatistics);
+		model.addAttribute("educationStatistics", educationStatistics);
+		
 	}
 	
 }
