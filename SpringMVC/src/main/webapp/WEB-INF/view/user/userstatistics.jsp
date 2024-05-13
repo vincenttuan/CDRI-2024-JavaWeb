@@ -28,4 +28,4 @@
     chart.draw(data, options);
   }
 </script>
-<div id="	" style="width: 900px; height: 500px;"></div>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
