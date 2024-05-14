@@ -96,8 +96,17 @@ public class UserController {
 	}
 	
 	@PutMapping("/{userId}")
-	public String updateUser(@PathVariable("userId") Integer userId, User user) {
-		System.out.println(user);
+	public String updateUser(@PathVariable("userId") Integer userId, @Valid User user, BindingResult result, Model model) {
+		// 判斷驗證是否通過 ?
+		if(result.hasErrors()) { // 若有錯誤發生
+			// 基本要傳給 user.jsp 的資訊
+			addBasicModel(model);
+			// 有錯誤的 user 資料也一併帶入給表單使用(內含錯誤的原因)
+			model.addAttribute("user", user);
+			// 重要 ! 要傳 PUT 回去
+			model.addAttribute("_method", "PUT");
+			return "user/user";
+		}
 		Boolean success = userService.updateUser(userId, user);
 		return "redirect:/mvc/user";
 	}
