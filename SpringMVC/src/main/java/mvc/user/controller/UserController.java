@@ -3,9 +3,12 @@ package mvc.user.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -78,8 +81,16 @@ public class UserController {
 	}
 	
 	@PostMapping("/")
-	public String createUser(User user) {
-		System.out.println(user);
+	public String createUser(@Valid User user, BindingResult result, Model model) {
+		// 判斷驗證是否通過 ?
+		if(result.hasErrors()) { // 若有錯誤發生
+			// 基本要傳給 user.jsp 的資訊
+			addBasicModel(model);
+			// 有錯誤的 user 資料也一併帶入給表單使用(內含錯誤的原因)
+			model.addAttribute("user", user);
+			return "user/user";
+		}
+		
 		Boolean success = userService.addUser(user);
 		return "redirect:/mvc/user";
 	}
