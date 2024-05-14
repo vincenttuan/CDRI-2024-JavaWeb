@@ -6,6 +6,15 @@
 <!-- Spring Form 表單標籤 -->
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css" />
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		let table = new DataTable('#myTable');
+	});
+</script>
+
 <div class="pure-form">
 	<fieldset>
 		<legend>
@@ -13,7 +22,7 @@
 		</legend>
 		
 		<!-- User table -->
-		<table class="pure-table pure-table-bordered">
+		<table id="myTable" class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
 					<th>序號</th><th>姓名</th><th>性別</th><th>年齡</th><th>生日</th>

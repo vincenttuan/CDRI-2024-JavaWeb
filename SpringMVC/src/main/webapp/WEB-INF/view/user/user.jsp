@@ -18,6 +18,12 @@
 		<hr />
 		<table border=0>
 			<tr>
+				<!-- User 列表 -->
+				<td colspan="2" valign="top">
+					<%@ include file="userlist.jspf" %>
+				</td>
+			</tr>
+			<tr>
 				<!-- User 表單 -->
 				<td valign="top">
 					<%@ include file="userform.jspf" %>
@@ -25,12 +31,6 @@
 				<!-- User 圖表 -->
 				<td valign="top">
 					<%@ include file="userstatistics.jspf" %>
-				</td>
-			</tr>
-			<tr>
-				<!-- User 列表 -->
-				<td colspan="2" valign="top">
-					<%@ include file="userlist.jspf" %>
 				</td>
 			</tr>
 		</table>
