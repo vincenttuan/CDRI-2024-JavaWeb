@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 
 import mvc.user.dao.BaseDataDao;
+import mvc.user.model.dto.UserDto;
 import mvc.user.model.po.User;
 import mvc.user.service.UserService;
 
@@ -40,9 +41,9 @@ public class UserRestController {
 	
 	@GetMapping
 	public String queryAllUsers() {
-		List<User> users = userService.findUsers();
+		List<UserDto> userDtos = userService.findUserDtos();
 		// 回傳 json 字串
-		return gson.toJson(users);
+		return gson.toJson(userDtos);
 	} 
 }
 
