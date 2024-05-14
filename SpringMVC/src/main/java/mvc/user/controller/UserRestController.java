@@ -1,9 +1,13 @@
 package mvc.user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,12 +43,29 @@ public class UserRestController {
 	
 	Gson gson = new Gson();
 	
+	// 查詢多筆紀錄
 	@GetMapping
 	public String queryAllUsers() {
 		List<UserDto> userDtos = userService.findUserDtos();
 		// 回傳 json 字串
 		return gson.toJson(userDtos);
-	} 
+	}
+	
+	// 查詢單筆紀錄
+	@GetMapping("/{id}")
+	public String getUser(@PathVariable("id") Integer id) {
+		User user = userService.getUser(id);
+		// 回傳 json 字串
+		return gson.toJson(user);
+	}
+	
+	// 新增紀錄
+	@PostMapping
+	public String addUser(@RequestBody String userJsonString) {
+		// 將 userJsonString 轉 User 物件
+		User user = gson.fromJson(userJsonString, User.class);
+		return userService.addUser(user) + "";
+	}
 }
 
 
