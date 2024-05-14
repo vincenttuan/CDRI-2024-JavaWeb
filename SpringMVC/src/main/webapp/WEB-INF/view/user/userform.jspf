@@ -20,6 +20,10 @@
 		興趣: <sp:checkboxes path="interestIds" items="${ interests }" itemValue="id" itemLabel="name" /><p />
 		履歷: <sp:textarea path="resume" /><p />
 		<button type="submit" class="pure-button pure-button-primary">${ _method eq 'PUT' ? '修改' : '新增' }</button>
+		<p />
+		<!-- 顯示所有錯誤訊息 -->
+		<sp:errors path="*" cssStyle="color: red" />
 	</fieldset>
 	
 </sp:form>
+
