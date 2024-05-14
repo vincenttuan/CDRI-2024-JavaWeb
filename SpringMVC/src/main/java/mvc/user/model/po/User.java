@@ -2,11 +2,11 @@ package mvc.user.model.po;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class User {
 	private Integer id; // 序號
 	
-	@NotEmpty(message = "姓名不可以是空白")
+	@NotEmpty (message = "姓名不可以是空白")
 	@Size(min = 2, max = 50, message = "姓名必須介於 {min} ~ {max} 字之間")
 	private String name; // 姓名
 	
