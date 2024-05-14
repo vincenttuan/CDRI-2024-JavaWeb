@@ -2,6 +2,7 @@ package mvc.user.model.po;
 
 import java.util.Date;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;

@@ -66,6 +66,11 @@ public class UserRestController {
 		User user = gson.fromJson(userJsonString, User.class);
 		return userService.addUser(user) + "";
 	}
+	
+	// 修改紀錄 PUT
+	
+	
+	// 刪除紀錄 Delete
 }
 
 
