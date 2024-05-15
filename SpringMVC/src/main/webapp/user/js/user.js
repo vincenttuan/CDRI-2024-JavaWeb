@@ -123,7 +123,7 @@ const loadFormOptions = async() => {
 // 表單提交事件處理
 const handleFormSubmit = async(event) => {
 	event.preventDefault(); // 停止表單的預設傳送行為, 改成自訂行為, 以下是自訂行為的邏輯
-	
+	// 表單資料
 	const formData = {
 		name: $('name').value,
         age: parseInt($('age').value),
@@ -139,7 +139,7 @@ const handleFormSubmit = async(event) => {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(formData)
+		body: JSON.stringify(formData) // 表單資料轉 json 字串
 	});
 	const {state, message, data} = await response.json();
 	console.log(message);
