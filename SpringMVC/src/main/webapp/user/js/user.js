@@ -93,6 +93,33 @@ const handleEvent = async(event, className, callback) => {
 	callback(id);
 };
 
+// 加載表單選項(學歷, 興趣)
+const loadFormOptions = async() => {
+	// 加載學歷選項
+	const educationOptions = await fetch('http://localhost:8080/SpringMVC/mvc/rest/user/educations');
+	var {state, message, data} = await educationOptions.json(); 
+	console.log(data);
+	// 將 data 逐筆放到下單選項(option)中 (動態建立下拉選單選項)
+	data.forEach(education => {
+		const opt = document.createElement('option');
+		opt.value = education.id;
+		opt.textContent = education.name;
+		$('educationId').appendChild(opt);
+	});
+	
+	// 加載興趣選項
+	const interestOptions = await fetch('http://localhost:8080/SpringMVC/mvc/rest/user/interests');
+	var {state, message, data} = await interestOptions.json(); 
+	console.log(data);
+	// 將 data 逐筆放到下單選項(option)中 (動態建立下拉選單選項)
+	data.forEach(interest => {
+		const opt = document.createElement('option');
+		opt.value = interest.id;
+		opt.textContent = interest.name;
+		$('interestIds').appendChild(opt);
+	});
+};
+
 // 待 DOM 加載完成之後再執行
 document.addEventListener("DOMContentLoaded", async() => {
 	
@@ -111,4 +138,6 @@ document.addEventListener("DOMContentLoaded", async() => {
 		await handleEvent(event, 'delete-user-button', handleDeleteUser);
 	});
 	
+	// 加載表單選項(學歷, 興趣)
+	loadFormOptions();
 });
