@@ -36,13 +36,13 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 		//console.log(renderFn(data[2]));
 		//$(containerId).innerHTML = renderFn(data[0]) + '' + renderFn(data[1]) + '' + renderFn(data[2]) ...
 		/*
-		if(Arrays.isArray(data)) {
+		if(Array.isArray(data)) {
 			$(containerId).innerHTML = data.map(renderFn).join(''); // 多筆渲染
 		} else {
 			$(containerId).innerHTML = renderFn(data); // 單筆渲染
 		}
 		*/
-		$(containerId).innerHTML = Arrays.isArray(data) ? data.map(renderFn).join('') : renderFn(data);
+		$(containerId).innerHTML = Array.isArray(data) ? data.map(renderFn).join('') : renderFn(data);
 		
 	} catch(e) {
 		console.error(e);
