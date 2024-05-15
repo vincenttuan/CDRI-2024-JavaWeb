@@ -133,6 +133,19 @@ const handleFormSubmit = async(event) => {
         interestIds: Array.from($('interestIds').selectedOptions).map(option => parseInt(option.value)),
         resume: $('resume').value
 	};
+	
+	const response = await fetch('http://localhost:8080/SpringMVC/mvc/rest/user', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(formData)
+	});
+	const {state, message, data} = await response.json();
+	console.log(message);
+	 
+	// 重新資料渲染(fetch取資料+渲染)
+	fetchAndRenderData('/mvc/rest/user', 'user-list-body', renderUser);
 };
 
 // 待 DOM 加載完成之後再執行
