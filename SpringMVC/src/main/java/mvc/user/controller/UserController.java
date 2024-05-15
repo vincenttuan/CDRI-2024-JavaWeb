@@ -102,6 +102,8 @@ public class UserController {
 			// 基本要傳給 user.jsp 的資訊
 			addBasicModel(model);
 			// 有錯誤的 user 資料也一併帶入給表單使用(內含錯誤的原因)
+			// ** 並補 userId 
+			user.setId(userId);
 			model.addAttribute("user", user);
 			// 重要 ! 要傳 PUT 回去
 			model.addAttribute("_method", "PUT");
