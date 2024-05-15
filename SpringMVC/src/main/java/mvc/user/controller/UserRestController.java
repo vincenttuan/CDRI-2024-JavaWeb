@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mvc.user.dao.BaseDataDao;
 import mvc.user.model.dto.UserDto;
+import mvc.user.model.po.Education;
+import mvc.user.model.po.Interest;
 import mvc.user.model.po.User;
 import mvc.user.model.response.ApiResponse;
 import mvc.user.service.UserService;
@@ -41,6 +43,16 @@ public class UserRestController {
 	
 	@Autowired
 	private BaseDataDao baseDataDao;
+	
+	@GetMapping("/educations")
+	public List<Education> queryEducations() {
+		return baseDataDao.findAllEducations();
+	}
+	
+	@GetMapping("/interests")
+	public List<Interest> queryInterests() {
+		return baseDataDao.findAllInterests();
+	}
 	
 	// 查詢多筆紀錄
 	@GetMapping

@@ -72,7 +72,7 @@ const handleDeleteUser = async(id) => {
 		cancelButtonText: '取消'
 	});
 	
-	if(!result.ifConfirmed) {
+	if (!result.isConfirmed) {
 		return;
 	}
 	
@@ -92,6 +92,7 @@ const handleEvent = async(event, className, callback) => {
 	const id = event.target.getAttribute('data-id');
 	callback(id);
 };
+
 // 待 DOM 加載完成之後再執行
 document.addEventListener("DOMContentLoaded", async() => {
 	
@@ -109,4 +110,5 @@ document.addEventListener("DOMContentLoaded", async() => {
 		await handleEvent(event, 'update-user-button', handleUpdateUser);
 		await handleEvent(event, 'delete-user-button', handleDeleteUser);
 	});
+	
 });

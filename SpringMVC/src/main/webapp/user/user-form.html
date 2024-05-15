@@ -1,6 +1,42 @@
-<form id="user-form" class="pure-form">
-	<fieldset>
-		<legend>User Form</legend>
-		
-	</fieldset>
-</form>
+<div id="user-form-container">
+	<form id="user-form" class="pure-form">
+		<fieldset>
+			<legend>User Form</legend>
+
+			<label for="name">姓名:</label> 
+			<input type="text" id="name" name="name" required>
+			<p />
+
+			<label for="age">年齡:</label>
+			<input type="number" id="age" name="age" required>
+			<p />
+
+			<label for="birth">生日:</label> <input type="date" id="birth"
+				name="birth" required>
+			<p />
+
+			<label for="educationId">學歷:</label> <select id="educationId"
+				name="educationId" required>
+				<!-- Options will be populated dynamically -->
+			</select>
+			<p />
+
+			<label>性別:</label> <label><input type="radio" name="genderId"
+				value="1" required> 男</label> <label><input type="radio"
+				name="genderId" value="2" required> 女</label>
+			<p />
+
+			<label for="interestIds">興趣:</label> <select id="interestIds"
+				name="interestIds" multiple required>
+				<!-- Options will be populated dynamically -->
+			</select>
+			<p />
+
+			<label for="resume">履歷:</label>
+			<textarea id="resume" name="resume" required></textarea>
+			<p />
+
+			<button type="submit" class="pure-button pure-button-primary">新增</button>
+		</fieldset>
+	</form>
+</div>
