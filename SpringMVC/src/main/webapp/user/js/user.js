@@ -53,6 +53,16 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 	} 
 }; 
 
+const handleUpdateUser = () => { console.log('按下修改'); };
+
+const handleDeleteUser = () => { console.log('按下刪除'); };
+
+const handleEvent = async(event, className, callback) => {
+	if(!event.target.classList.contains(className)) {
+		return;
+	}
+	callback();
+};
 // 待 DOM 加載完成之後再執行
 document.addEventListener("DOMContentLoaded", async() => {
 	
