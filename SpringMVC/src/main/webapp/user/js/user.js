@@ -35,7 +35,11 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 		//console.log(renderFn(data[1]));
 		//console.log(renderFn(data[2]));
 		//$(containerId).innerHTML = renderFn(data[0]) + '' + renderFn(data[1]) + '' + renderFn(data[2]) ...
-		$(containerId).innerHTML = data.map(renderFn).join('');
+		if(Arrays.isArray(data)) {
+			$(containerId).innerHTML = data.map(renderFn).join(''); // 多筆渲染
+		} else {
+			$(containerId).innerHTML = renderFn(data); // 單筆渲染
+		}
 		
 	} catch(e) {
 		console.error(e);
