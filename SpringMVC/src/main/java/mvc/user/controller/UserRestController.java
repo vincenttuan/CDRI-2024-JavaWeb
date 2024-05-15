@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -88,8 +89,23 @@ public class UserRestController {
 		return ResponseEntity.ok(apiResponse);
 	}
 	
-	
 	// 刪除紀錄 Delete
+	@DeleteMapping("/{id}")
+	public ResponseEntity<ApiResponse<User>> deleteUser(@PathVariable("id") Integer id) {
+		User user = null;
+		try {
+			user = userService.getUser(id);
+			Boolean state = userService.deleteUser(id);
+			String message = state ? "success" : "fail";
+			ApiResponse apiResponse = new ApiResponse<>(state, "delete " + message, user);
+			return ResponseEntity.ok(apiResponse);
+		} catch (Exception e) {
+			ApiResponse apiResponse = new ApiResponse<>(false, e.toString(), user);
+			return ResponseEntity.ok(apiResponse);
+		}
+		
+	}
+	
 }
 
 
