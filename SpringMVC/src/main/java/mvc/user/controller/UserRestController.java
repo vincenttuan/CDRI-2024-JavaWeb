@@ -67,7 +67,8 @@ public class UserRestController {
 	@PostMapping
 	public ResponseEntity<ApiResponse<User>> addUser(@RequestBody User user) {
 		// 將 userJsonString 轉 User 物件
-		Boolean state = userService.addUser(user);
+		Integer userId = userService.addUserAndGetId(user);
+		user.setId(userId);
 		ApiResponse apiResponse = new ApiResponse<>(true, "add success", user);
 		return ResponseEntity.ok(apiResponse);
 	}

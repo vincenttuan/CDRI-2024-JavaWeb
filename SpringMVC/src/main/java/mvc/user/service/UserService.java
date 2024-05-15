@@ -62,8 +62,14 @@ public class UserService {
 		return userDao.getUserById(userId);
 	}
 	
+	// 新增 user 並回傳是否成功
 	public Boolean addUser(User user) {
-		return userDao.addUser(user) > 0;
+		return addUserAndGetId(user) > 0;
+	}
+	
+	// 新增 user 並回傳最新 userId
+	public Integer addUserAndGetId(User user) {
+		return userDao.addUser(user);
 	}
 	
 	public Boolean updateUser(Integer userId, User user) {
