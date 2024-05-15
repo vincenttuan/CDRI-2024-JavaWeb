@@ -82,9 +82,12 @@ public class UserRestController {
 	// 修改紀錄 PUT
 	@PutMapping("/{id}")
 	public ResponseEntity<ApiResponse<User>> updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
+		// 修改
 		Boolean state = userService.updateUser(id, user);
+		// 將 id 注入到 user 物件中, 有助於前端判讀
 		user.setId(id);
 		String message = state ? "success" : "fail";
+		// 回應資料
 		ApiResponse apiResponse = new ApiResponse<>(state, "update " + message, user);
 		return ResponseEntity.ok(apiResponse);
 	}
@@ -94,9 +97,12 @@ public class UserRestController {
 	public ResponseEntity<ApiResponse<User>> deleteUser(@PathVariable("id") Integer id) {
 		User user = null;
 		try {
+			// 查詢該 user 是否存在
 			user = userService.getUser(id);
+			// 刪除
 			Boolean state = userService.deleteUser(id);
 			String message = state ? "success" : "fail";
+			// 回應資料
 			ApiResponse apiResponse = new ApiResponse<>(state, "delete " + message, user);
 			return ResponseEntity.ok(apiResponse);
 		} catch (Exception e) {
