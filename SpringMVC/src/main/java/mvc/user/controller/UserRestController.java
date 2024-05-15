@@ -44,16 +44,6 @@ public class UserRestController {
 	@Autowired
 	private BaseDataDao baseDataDao;
 	
-	@GetMapping("/educations")
-	public List<Education> queryEducations() {
-		return baseDataDao.findAllEducations();
-	}
-	
-	@GetMapping("/interests")
-	public List<Interest> queryInterests() {
-		return baseDataDao.findAllInterests();
-	}
-	
 	// 查詢多筆紀錄
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<UserDto>>> queryAllUsers() {
