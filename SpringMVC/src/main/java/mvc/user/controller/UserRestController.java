@@ -82,6 +82,7 @@ public class UserRestController {
 	@PutMapping("/{id}")
 	public ResponseEntity<ApiResponse<User>> updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
 		Boolean state = userService.updateUser(id, user);
+		user.setId(id);
 		String message = state ? "success" : "fail";
 		ApiResponse apiResponse = new ApiResponse<>(state, "update " + message, user);
 		return ResponseEntity.ok(apiResponse);
