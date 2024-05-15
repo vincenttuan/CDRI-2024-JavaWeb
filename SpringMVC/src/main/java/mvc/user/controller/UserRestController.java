@@ -1,7 +1,6 @@
 package mvc.user.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.google.gson.Gson;
 
 import mvc.user.dao.BaseDataDao;
 import mvc.user.model.dto.UserDto;
@@ -42,8 +39,6 @@ public class UserRestController {
 	
 	@Autowired
 	private BaseDataDao baseDataDao;
-	
-	Gson gson = new Gson();
 	
 	// 查詢多筆紀錄
 	@GetMapping
