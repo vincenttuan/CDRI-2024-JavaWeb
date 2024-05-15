@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,6 +79,13 @@ public class UserRestController {
 	}
 	
 	// 修改紀錄 PUT
+	@PutMapping("/{id}")
+	public ResponseEntity<ApiResponse<User>> updateUser(@PathVariable("id") Integer id, @RequestBody User user) {
+		Boolean state = userService.updateUser(id, user);
+		String message = state ? "success" : "fail";
+		ApiResponse apiResponse = new ApiResponse<>(state, "update " + message, user);
+		return ResponseEntity.ok(apiResponse);
+	}
 	
 	
 	// 刪除紀錄 Delete
