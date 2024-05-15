@@ -120,6 +120,21 @@ const loadFormOptions = async() => {
 	});
 };
 
+// 表單提交事件處理
+const handleFormSubmit = async(event) => {
+	event.preventDefault(); // 停止表單的預設傳送行為, 改成自訂行為, 以下是自訂行為的邏輯
+	
+	const formData = {
+		name: $('name').value,
+        age: parseInt($('age').value),
+        birth: $('birth').value,
+        educationId: parseInt($('educationId').value),
+        genderId: parseInt(document.querySelector('input[name="genderId"]:checked').value),
+        interestIds: Array.from($('interestIds').selectedOptions).map(option => parseInt(option.value)),
+        resume: $('resume').value
+	};
+};
+
 // 待 DOM 加載完成之後再執行
 document.addEventListener("DOMContentLoaded", async() => {
 	
