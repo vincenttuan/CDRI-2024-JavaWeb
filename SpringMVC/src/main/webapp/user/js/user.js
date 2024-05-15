@@ -19,8 +19,12 @@ const renderUser = ({id, name, gender, age, birth, education, interestNames, int
 	<tr>
 		<th>${id}</th><th>${name}</th><th>${gender.name}</th><th>${age}</th><th>${birth}</th>
 		<th>${education.name}</th><th>${interestNames}</th><th>${resume}</th>
-		<th>修改</th>
-		<th>刪除</th>
+		<th title="修改">
+			<span class="button-delete pure-button update-user-button data-id="${id}">修改</span>
+		</th>
+		<th title="刪除">
+			<span class="button-delete pure-button delete-user-button data-id="${id}">刪除</span>
+		</th>
 	</tr>
 `;
 
@@ -31,7 +35,7 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 		const response = await fetch(fullUrl); // 等待 fetch 請求完成
 		const {state, message, data} = await response.json(); // 等待回應本文內容
 		console.log(state, message, data);
-		//console.log(renderFn(data[0]));
+		console.log(renderFn(data[0]));
 		//console.log(renderFn(data[1]));
 		//console.log(renderFn(data[2]));
 		//$(containerId).innerHTML = renderFn(data[0]) + '' + renderFn(data[1]) + '' + renderFn(data[2]) ...
