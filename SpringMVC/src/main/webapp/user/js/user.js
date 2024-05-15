@@ -15,7 +15,14 @@ const loadHTML = async(url, containerId) => {
 };
 
 // 渲染 User 資料配置
-const renderUser = () => ``;
+const renderUser = ({id, name, gender, age, birth, education, interestNames, interests, resume}) => `
+	<tr>
+		<th>${id}</th><th>${name}</th><th>${gender.name}</th><th>${age}</th><th>${birth}</th>
+		<th>${education.name}</th><th>${interestNames}</th><th>${resume}</th>
+		<th>修改</th>
+		<th>刪除</th>
+	</tr>
+`;
 
 // 資料渲染
 const fetchAndRenderData = async(url, containerId, renderFn) => {
@@ -23,7 +30,12 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 	try {
 		const response = await fetch(fullUrl); // 等待 fetch 請求完成
 		const {state, message, data} = await response.json(); // 等待回應本文內容
-		console.log(state, message, data);
+		//console.log(state, message, data);
+		
+		console.log(renderFn(data[0]));
+		console.log(renderFn(data[1]));
+		console.log(renderFn(data[2]));
+		//$(containerId).innerHTML = 字串;
 		
 	} catch(e) {
 		console.error(e);
