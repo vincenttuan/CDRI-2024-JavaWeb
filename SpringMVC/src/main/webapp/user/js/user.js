@@ -30,12 +30,12 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 	try {
 		const response = await fetch(fullUrl); // 等待 fetch 請求完成
 		const {state, message, data} = await response.json(); // 等待回應本文內容
-		//console.log(state, message, data);
-		
-		console.log(renderFn(data[0]));
-		console.log(renderFn(data[1]));
-		console.log(renderFn(data[2]));
-		//$(containerId).innerHTML = 字串;
+		console.log(state, message, data);
+		//console.log(renderFn(data[0]));
+		//console.log(renderFn(data[1]));
+		//console.log(renderFn(data[2]));
+		//$(containerId).innerHTML = renderFn(data[0]) + '' + renderFn(data[1]) + '' + renderFn(data[2]) ...
+		$(containerId).innerHTML = data.map(renderFn).join('');
 		
 	} catch(e) {
 		console.error(e);
