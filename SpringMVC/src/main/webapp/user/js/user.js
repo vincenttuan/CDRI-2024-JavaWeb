@@ -20,10 +20,10 @@ const renderUser = ({id, name, gender, age, birth, education, interestNames, int
 		<th>${id}</th><th>${name}</th><th>${gender.name}</th><th>${age}</th><th>${birth}</th>
 		<th>${education.name}</th><th>${interestNames}</th><th>${resume}</th>
 		<th title="修改">
-			<span class="button-update pure-button update-user-button data-id="${id}">修改</span>
+			<span class="button-update pure-button update-user-button" data-id="${id}">修改</span>
 		</th>
 		<th title="刪除">
-			<span class="button-delete pure-button delete-user-button data-id="${id}">刪除</span>
+			<span class="button-delete pure-button delete-user-button" data-id="${id}">刪除</span>
 		</th>
 	</tr>
 `;
@@ -53,15 +53,16 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 	} 
 }; 
 
-const handleUpdateUser = () => { console.log('按下修改'); };
+const handleUpdateUser = (id) => { console.log('按下修改:' + id); };
 
-const handleDeleteUser = () => { console.log('按下刪除'); };
+const handleDeleteUser = (id) => { console.log('按下刪除:' + id); };
 
 const handleEvent = async(event, className, callback) => {
 	if(!event.target.classList.contains(className)) {
 		return;
 	}
-	callback();
+	const id = event.target.getAttribute('data-id');
+	callback(id);
 };
 // 待 DOM 加載完成之後再執行
 document.addEventListener("DOMContentLoaded", async() => {
