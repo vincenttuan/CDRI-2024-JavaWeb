@@ -49,7 +49,7 @@ public class UserRestController {
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<UserDto>>> queryAllUsers() {
 		List<UserDto> userDtos = userService.findUserDtos();
-		ApiResponse apiResponse = new ApiResponse<>(true, "success", userDtos);
+		ApiResponse apiResponse = new ApiResponse<>(true, "query success", userDtos);
 		// 回傳 json 字串
 		return ResponseEntity.ok(apiResponse);
 	}
@@ -59,7 +59,7 @@ public class UserRestController {
 	public ResponseEntity<ApiResponse<User>> getUser(@PathVariable("id") Integer id) {
 		try {
 			User user = userService.getUser(id);
-			ApiResponse apiResponse = new ApiResponse<>(true, "success", user);
+			ApiResponse apiResponse = new ApiResponse<>(true, "get success", user);
 			return ResponseEntity.ok(apiResponse);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,10 +70,11 @@ public class UserRestController {
 	
 	// 新增紀錄
 	@PostMapping
-	public String addUser(@RequestBody String userJsonString) {
+	public ResponseEntity<ApiResponse<User>> addUser(@RequestBody User user) {
 		// 將 userJsonString 轉 User 物件
-		User user = gson.fromJson(userJsonString, User.class);
-		return userService.addUser(user) + "";
+		Boolean state = userService.addUser(user);
+		ApiResponse apiResponse = new ApiResponse<>(true, "add success", user);
+		return ResponseEntity.ok(apiResponse);
 	}
 	
 	// 修改紀錄 PUT
