@@ -66,11 +66,15 @@ public class UserRestController {
 	// 新增紀錄
 	@PostMapping
 	public ResponseEntity<ApiResponse<User>> addUser(@RequestBody User user) {
-		// 將 userJsonString 轉 User 物件
 		Integer userId = userService.addUserAndGetId(user);
-		user.setId(userId);
-		ApiResponse apiResponse = new ApiResponse<>(true, "add success", user);
+		if(userId != null) {
+			user.setId(userId);
+			ApiResponse apiResponse = new ApiResponse<>(true, "add success", user);
+			return ResponseEntity.ok(apiResponse);
+		}
+		ApiResponse apiResponse = new ApiResponse<>(false, "add fail", user);
 		return ResponseEntity.ok(apiResponse);
+	
 	}
 	
 	// 修改紀錄 PUT
