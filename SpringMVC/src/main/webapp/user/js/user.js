@@ -20,7 +20,7 @@ const renderUser = ({id, name, gender, age, birth, education, interestNames, int
 		<th>${id}</th><th>${name}</th><th>${gender.name}</th><th>${age}</th><th>${birth}</th>
 		<th>${education.name}</th><th>${interestNames}</th><th>${resume}</th>
 		<th title="修改">
-			<span class="button-delete pure-button update-user-button data-id="${id}">修改</span>
+			<span class="button-update pure-button update-user-button data-id="${id}">修改</span>
 		</th>
 		<th title="刪除">
 			<span class="button-delete pure-button delete-user-button data-id="${id}">刪除</span>
