@@ -168,4 +168,7 @@ document.addEventListener("DOMContentLoaded", async() => {
 	
 	// 加載表單選項(學歷, 興趣)
 	loadFormOptions();
+	
+	// 監聽 user-form
+	$('user-form').addEventListener("submit", handleFormSubmit);
 });
