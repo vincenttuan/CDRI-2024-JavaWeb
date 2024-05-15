@@ -55,7 +55,15 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 
 const handleUpdateUser = (id) => { console.log('按下修改:' + id); };
 
-const handleDeleteUser = (id) => { console.log('按下刪除:' + id); };
+const handleDeleteUser = async(id) => { 
+	console.log('按下刪除:' + id); 
+	const fullUrl = 'http://localhost:8080/SpringMVC/mvc/rest/user/' + id;
+	const response = await fetch(fullUrl); // 等待 fetch 請求完成
+	const {state, message, data} = await response.json(); // 等待回應本文內容
+	console.log(state, message, data);
+	// 更新 user list
+	fetchAndRenderData('/mvc/rest/user', 'user-list-body', renderUser);
+};
 
 const handleEvent = async(event, className, callback) => {
 	if(!event.target.classList.contains(className)) {
