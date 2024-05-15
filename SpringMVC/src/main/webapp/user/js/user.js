@@ -63,4 +63,11 @@ document.addEventListener("DOMContentLoaded", async() => {
 	// 資料渲染(fetch取資料+渲染)
 	fetchAndRenderData('/mvc/rest/user', 'user-list-body', renderUser);
 	
+	// 監聽 User List 是否有被點擊?
+	$('user-list-table').addEventListener("click", async(event) => {
+		//console.log(event);
+		// 處理事件
+		await handleEvent(event, 'update-user-button', handleUpdateUser);
+		await handleEvent(event, 'delete-user-button', handleDeleteUser);
+	});
 });
