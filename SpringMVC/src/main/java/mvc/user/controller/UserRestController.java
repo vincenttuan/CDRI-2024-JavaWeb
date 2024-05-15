@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.google.gson.Gson;
 import mvc.user.dao.BaseDataDao;
 import mvc.user.model.dto.UserDto;
 import mvc.user.model.po.User;
+import mvc.user.model.response.ApiResponse;
 import mvc.user.service.UserService;
 
 /**
@@ -45,18 +47,25 @@ public class UserRestController {
 	
 	// 查詢多筆紀錄
 	@GetMapping
-	public String queryAllUsers() {
+	public ResponseEntity<ApiResponse<List<UserDto>>> queryAllUsers() {
 		List<UserDto> userDtos = userService.findUserDtos();
+		ApiResponse apiResponse = new ApiResponse<>(true, "success", userDtos);
 		// 回傳 json 字串
-		return gson.toJson(userDtos);
+		return ResponseEntity.ok(apiResponse);
 	}
 	
 	// 查詢單筆紀錄
 	@GetMapping("/{id}")
-	public String getUser(@PathVariable("id") Integer id) {
-		User user = userService.getUser(id);
-		// 回傳 json 字串
-		return gson.toJson(user);
+	public ResponseEntity<ApiResponse<User>> getUser(@PathVariable("id") Integer id) {
+		try {
+			User user = userService.getUser(id);
+			ApiResponse apiResponse = new ApiResponse<>(true, "success", user);
+			return ResponseEntity.ok(apiResponse);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ApiResponse apiResponse = new ApiResponse<>(false, e.getMessage(), null);
+			return ResponseEntity.ok(apiResponse);
+		}
 	}
 	
 	// 新增紀錄
