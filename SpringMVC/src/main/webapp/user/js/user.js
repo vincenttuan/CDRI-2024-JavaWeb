@@ -16,6 +16,7 @@ const loadHTML = async(url, containerId) => {
 	}
 };
 
+// 監聽事件處理
 const handleEvent = async(event, className, callback) => {
 	if(!event.target.classList.contains(className)) {
 		return;
@@ -178,6 +179,7 @@ const getUserData = async(id) => {
 		const {state, message, data} = await response.json();
 		const user = data;
 		console.log(user);
+		// 將得到的 user 資料配置在表單中
 		$('name').value = user.name;
 		$('age').value = user.age;
 		$('birth').value = user.birth;
@@ -191,7 +193,7 @@ const getUserData = async(id) => {
 		});
 		
 		$('resume').value = user.resume;
-		
+		// **在表單中加入一個屬性 data-id 用來記錄修改的 id 為何
 		$('user-form').setAttribute('data-id', user.id);
 		$('form-submit-button').textContent = '修改';
 	} catch(e) {
