@@ -142,13 +142,12 @@ const handleFormSubmit = async(event) => {
         resume: $('resume').value
 	};
 
-	const id = $('user-form').getAttribute('data-id');
 	const submitButtonText = $('form-submit-button').textContent;
-
 	if (submitButtonText === '新增') {
 		// 新增使用者
 		addUser(formData);
 	} else if (submitButtonText === '修改') {
+		const id = $('user-form').getAttribute('data-id');
 		// 更新使用者
 		updateUser(id, formData);
 	}
