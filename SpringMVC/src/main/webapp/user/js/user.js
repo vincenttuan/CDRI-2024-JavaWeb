@@ -53,7 +53,6 @@ const fetchAndRenderData = async(url, containerId, renderFn) => {
 	} 
 }; 
 
-const handleUpdateUser = (id) => { console.log('按下修改:' + id); };
 
 const handleDeleteUser = async(id) => { 
 	console.log('按下刪除:' + id); 
@@ -121,9 +120,10 @@ const loadFormOptions = async() => {
 };
 
 // 表單提交事件處理
+// 表單提交事件處理
 const handleFormSubmit = async(event) => {
 	event.preventDefault(); // 停止表單的預設傳送行為, 改成自訂行為, 以下是自訂行為的邏輯
-	// 表單資料
+	
 	const formData = {
 		name: $('name').value,
         age: parseInt($('age').value),
@@ -133,19 +133,103 @@ const handleFormSubmit = async(event) => {
         interestIds: Array.from($('interestIds').selectedOptions).map(option => parseInt(option.value)),
         resume: $('resume').value
 	};
-	
+
+	const id = $('user-form').getAttribute('data-id');
+	const submitButtonText = $('form-submit-button').textContent;
+
+	if (submitButtonText === '新增') {
+		// 新增使用者
+		addUser(formData);
+	} else if (submitButtonText === '修改') {
+		// 更新使用者
+		updateUser(id, formData);
+	}
+};
+
+// 新增使用者
+const addUser = async(formData) => {
 	const response = await fetch('http://localhost:8080/SpringMVC/mvc/rest/user', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(formData) // 表單資料轉 json 字串
+		body: JSON.stringify(formData)
 	});
 	const {state, message, data} = await response.json();
 	console.log(message);
 	 
-	// 重新資料渲染(fetch取資料+渲染)
 	fetchAndRenderData('/mvc/rest/user', 'user-list-body', renderUser);
+	// 清除表單
+	clearForm();
+};
+
+// 取得並顯示使用者資料到表單上
+const getUserData = async(id) => {
+	const fullUrl = `http://localhost:8080/SpringMVC/mvc/rest/user/${id}`;
+	try {
+		const response = await fetch(fullUrl);
+		const {state, message, data} = await response.json();
+		const user = data;
+		console.log(user);
+		$('name').value = user.name;
+		$('age').value = user.age;
+		$('birth').value = user.birth;
+		$('educationId').value = user.educationId;
+		document.querySelector(`input[name="genderId"][value="${user.genderId}"]`).checked = true;
+		
+		// 設置興趣多選框的選中狀態
+		const interestSelect = $('interestIds');
+		Array.from(interestSelect.options).forEach(option => {
+			option.selected = user.interestIds.includes(parseInt(option.value));
+		});
+		
+		$('resume').value = user.resume;
+		
+		$('user-form').setAttribute('data-id', user.id);
+		$('form-submit-button').textContent = '修改';
+	} catch(e) {
+		console.error(e);
+	}
+};
+
+// 更新使用者資料
+const updateUser = async(id, formData) => {
+	const fullUrl = `http://localhost:8080/SpringMVC/mvc/rest/user/${id}`;
+	try {
+		const response = await fetch(fullUrl, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(formData)
+		});
+		const {state, message, data} = await response.json();
+		console.log(message);
+		
+		// 重新資料渲染(fetch取資料+渲染)
+		fetchAndRenderData('/mvc/rest/user', 'user-list-body', renderUser);
+		// 清除表單
+		clearForm();
+	} catch(e) {
+		console.error(e);
+	}
+};
+
+const handleUpdateUser = (id) => { 
+	console.log('按下修改:' + id); 
+	getUserData(id);
+};
+
+const clearForm = () => {
+	$('name').value = '';
+	$('age').value = '';
+	$('birth').value = '';
+	$('educationId').value = '';
+	document.querySelector('input[name="genderId"]:checked').checked = false;
+	Array.from($('interestIds').options).forEach(option => option.selected = false);
+	$('resume').value = '';
+	$('user-form').removeAttribute('data-id');
+	$('form-submit-button').textContent = '新增';
 };
 
 // 待 DOM 加載完成之後再執行
